@@ -149,6 +149,7 @@ namespace ProteoformSuiteGUI
             ckbx_OxidMeth.Checked = Sweet.lollipop.methionine_oxidation;
             ckbx_Meth_Cleaved.Checked = Sweet.lollipop.methionine_cleavage;
             ckbx_Carbam.Checked = Sweet.lollipop.carbamidomethylation;
+            ckbx_reduced_disulfide.Checked = Sweet.lollipop.reduced_disulfides;
             ckbx_combineIdenticalSequences.Checked = Sweet.lollipop.combine_identical_sequences;
             ckbx_combineTheoreticalsByMass.Checked = Sweet.lollipop.combine_theoretical_proteoforms_byMass;
 
@@ -441,6 +442,11 @@ namespace ProteoformSuiteGUI
         private void nud_randomSeed_ValueChanged(object sender, EventArgs e)
         {
             Sweet.lollipop.randomSeed_decoys = Convert.ToInt32(nud_randomSeed.Value);
+        }
+
+        private void ckbx_reduced_disulfide_CheckedChanged(object sender, EventArgs e)
+        {
+            Sweet.lollipop.reduced_disulfides = ckbx_reduced_disulfide.Checked;
         }
     }
 }

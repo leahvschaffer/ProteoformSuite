@@ -844,6 +844,7 @@ namespace ProteoformSuiteInternal
         public int decoy_databases = 10;
         public int min_peptide_length = 7;
         public double ptmset_mass_tolerance = 0.00001;
+        public bool reduced_disulfides = true;
         public bool combine_identical_sequences = true;
         public bool combine_theoretical_proteoforms_byMass = true;
         public string[] mod_types_to_exclude = new string[] { "Metal", "PeptideTermMod", "TrypticProduct", "TrypsinDigestedMod" };

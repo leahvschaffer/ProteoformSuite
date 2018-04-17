@@ -23,6 +23,8 @@ namespace ProteoformSuiteInternal
         public bool contaminant { get; set; }
         public List<GoTerm> goTerms { get; private set; }
         public bool topdown_theoretical { get; set; }
+        public List<DisulfideBond> disulfide_bonds { get; set; }
+
         #endregion Public Properties
 
         #region Public Constructor
@@ -45,6 +47,7 @@ namespace ProteoformSuiteInternal
             this.ptm_set = ptm_set;
             this.unmodified_mass = unmodified_mass;
             if (check_contaminants) this.contaminant = theoretical_proteins.Where(item => item.Key.ContaminantDB).SelectMany(kv => kv.Value).Any(p => p.Accession == this.accession.Split(new char[] { '_' })[0]);
+            this.disulfide_bonds = expanded_protein_list.SelectMany(p => p.DisulfideBonds.Where(d => d.OneBasedBeginPosition >= this.begin && d.OneBasedBeginPosition <= this.end)).ToList();
         }
 
         #endregion Public Constructor
