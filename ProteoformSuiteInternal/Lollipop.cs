@@ -48,7 +48,7 @@ namespace ProteoformSuiteInternal
             "Protein Databases and PTM Lists (.xml, .xml.gz, .fasta, .txt)",
             "TDPortal Top-Down Hit Results (Unlabeled) (.xlsx)",
             "Spectra Files (.raw, .mzML)",
-            "Uncalibrated Deconvolution Results (.xlsx)",
+            "Uncalibrated Deconvolution Results (.xlsx, .csv)",
             "Uncalibrated TDPortal Top-Down Hit Results (Unlabeled) (.xlsx)",
         };
 
@@ -59,18 +59,18 @@ namespace ProteoformSuiteInternal
             new List<string> { ".xml", ".gz", ".fasta", ".txt" },
             new List<string> { ".xlsx" },
             new List<string> {".raw", ".mzML", ".mzml", ".MZML"},
-            new List<string> { ".xlsx" },
+            new List<string> { ".xlsx", ".csv"},
             new List<string> { ".xlsx" },
         };
 
         public static readonly string[] file_filters = new[]
         {
-            "Excel Files (*.xlsx, *.csv) | *.xlsx;*.csv",
+            "Deconvolution Results Files (*.xlsx, *.csv) | *.xlsx;*.csv",
             "Excel Files (*.xlsx) | *.xlsx",
             "Protein Databases and PTM Text Files (*.xml, *.xml.gz, *.fasta, *.txt) | *.xml;*.xml.gz;*.fasta;*.txt",
             "Excel Files (*.xlsx) | *.xlsx",
             "Spectra Files (*.raw, *.mzML) | *.raw;*.mzML",
-            "Excel Files (*.xlsx) | *.xlsx",
+            "Excel Files (*.xlsx, *.csv) | *.xlsx;*.csv",
             "Excel Files (*.xlsx) | *.xlsx",
         };
 

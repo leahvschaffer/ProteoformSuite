@@ -104,6 +104,16 @@ namespace ProteoformSuiteGUI
             get { return c.intensity_reported; }
         }
 
+        public double fit
+        {
+            get { return c.fit; }
+        }
+
+        public double likelihood
+        {
+            get { return c.likelihood_ratio; }
+        }
+
         #endregion Public Properties
 
         #region Public Methods

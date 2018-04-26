@@ -160,7 +160,8 @@ namespace ProteoformSuiteInternal
                 }
 
                 c.calculate_properties();
-
+                c.fit = feature.Value.Select(v => Convert.ToDouble(v[4])).Min();
+                c.likelihood_ratio = feature.Value.Select(v => Convert.ToDouble(v[7])).Max();
                 if (acceptable_component(c))
                 {
                     add_component(c);
