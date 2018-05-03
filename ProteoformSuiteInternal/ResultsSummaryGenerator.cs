@@ -497,7 +497,7 @@ namespace ProteoformSuiteInternal
             results.Columns.Add("Begin and End", typeof(string));
             results.Columns.Add("Proteoform Mass");
             results.Columns.Add("Retention Time", typeof(double));
-            List<string> files = Sweet.lollipop.get_files(Sweet.lollipop.input_files, Purpose.Identification).Select(x => x.lt_condition + "|" + x.biological_replicate + "|" + x.fraction + "|" + x.technical_replicate).Distinct().ToList();
+            List<string> files = Sweet.lollipop.get_files(Sweet.lollipop.input_files, Purpose.Identification).Select(x => x.lt_condition + "|" + x.biological_replicate + "|" + x.fraction + "|" + x.technical_replicate).Distinct().OrderBy(f => f).ToList();
             foreach (string f in files)
             {
                 string[] file_info = f.Split('|');

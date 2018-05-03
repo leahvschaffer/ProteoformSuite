@@ -430,7 +430,7 @@ namespace ProteoformSuiteInternal
                 if (row.RowNumber() != 1)
                 {
                     double corrected_mass;
-                    if (Sweet.lollipop.td_hit_correction.TryGetValue(new Tuple<string, int, double>(row.Cell(15).Value.ToString().Split('.')[0], Convert.ToInt16(row.Cell(18).GetDouble()), row.Cell(17).GetDouble()), out corrected_mass))
+                    if (Sweet.lollipop.td_hit_correction.TryGetValue(new Tuple<string, double, double>(row.Cell(15).Value.ToString().Split('.')[0], row.Cell(19).GetDouble(), row.Cell(17).GetDouble()), out corrected_mass))
                     {
                         row.Cell(17).SetValue(corrected_mass);
                     }
@@ -474,7 +474,7 @@ namespace ProteoformSuiteInternal
                         {
                             double value;
                             //CHECK WITH CHARGE NORMALIZED INTENSITY!! 
-                            if (Sweet.lollipop.file_mz_correction.TryGetValue(new Tuple<string, double, double>(file.filename, Math.Round(row.Cell(3).GetDouble() / row.Cell(2).GetDouble(), 0), Math.Round(row.Cell(5).GetDouble(), 2)), out value))
+                            if (Sweet.lollipop.component_correction.TryGetValue(new Tuple<string, double, double>(file.filename, Math.Round(row.Cell(3).GetDouble() / row.Cell(2).GetDouble(), 0), Math.Round(row.Cell(5).GetDouble(), 2)), out value))
                             {
                                 row.Cell(4).SetValue(value);
                             }
@@ -483,22 +483,23 @@ namespace ProteoformSuiteInternal
                 });
                 workbook.Save();
             }
-            else if (file.extension == ".csv")
+            else if (file.extension == ".tsv")
             {
                 string[] old = File.ReadAllLines(old_absolute_path);
                 List<string> new_file = new List<string>();
                 new_file.Add(old[0]);
                 for(int i = 1; i < old.Length; i++)
                 {
-                    string[] row = old[i].Split(',');
-                    if (old.Length == 9 && Double.TryParse(row[2], out double intensity) && Double.TryParse(row[3], out double mz) && Int32.TryParse(row[1], out int charge))
+                    string[] row = old[i].Split('\t');
+                    if (row.Length == 20 && Double.TryParse(row[5], out double mass) && Double.TryParse(row[9], out double intensity))
                     {
                         double value;
-                        if (Sweet.lollipop.file_mz_correction.TryGetValue(new Tuple<string, double, double>(file.filename, Math.Round(intensity, 0), Math.Round(mz, 2)), out value))
+                        if (Sweet.lollipop.component_correction.TryGetValue(new Tuple<string, double, double>(file.filename, Math.Round(intensity, 0), Math.Round(mass, 2)), out value))
                         {
-                            row[3] = mz.ToString();
-                            row[5] = mz.ToMass(charge).ToString();
-                            new_file.Add(String.Join(",", row));
+                            //do intensity weighted new monoisotopic mass for each feature
+                            //just rewrite, don't bother with dictionary, etc......
+                            row[5] = value.ToString();
+                            new_file.Add(String.Join("\t", row));
                         }
                     }
                 }
