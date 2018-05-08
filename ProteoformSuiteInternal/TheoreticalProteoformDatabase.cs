@@ -557,7 +557,6 @@ namespace ProteoformSuiteInternal
 
         private List<TheoreticalProteoform> add_disulfide_bonds(List<TheoreticalProteoform> theoretical_proteoforms, int decoy_number)
         {
-            List<TheoreticalProteoform> theoreticals_to_remove = new List<TheoreticalProteoform>();
             List<TheoreticalProteoform> new_theoreticals = new List<TheoreticalProteoform>();
             foreach (var theoretical1 in theoretical_proteoforms.OrderBy(t => t.begin))
             {
@@ -598,11 +597,6 @@ namespace ProteoformSuiteInternal
                                 mass += theoretical2.unmodified_mass;
                                 sequence += theoretical2.sequence;
                             }
-                            lock (theoreticals_to_remove)
-                            {
-                                if (!theoreticals_to_remove.Contains(theoretical2)) //&& (more_bonds.Any(b => b.OneBasedBeginPosition >= theoretical2.begin && b.OneBasedEndPosition <= theoretical2.end) || bond_list.Any(b => b.OneBasedBeginPosition >= theoretical2.begin && b.OneBasedEndPosition <= theoretical2.end)))
-                                    theoreticals_to_remove.Add(theoretical2);
-                            }
                         }
                         description += "_ Disulfide Bonds: " + num_bonds;
                         TheoreticalProteoform new_theoretical = new TheoreticalProteoform(
@@ -632,14 +626,6 @@ namespace ProteoformSuiteInternal
                     theoreticals_by_accession[decoy_number][accession].Add(new_theoretical);
                 }
             }
-            theoretical_proteoforms = theoretical_proteoforms.Except(theoreticals_to_remove).ToList();
-            Parallel.ForEach(theoreticals_to_remove, t =>
-            {
-                foreach (string accession in t.ExpandedProteinList.SelectMany(p => p.AccessionList).Select(a => a.Split('_')[0]))
-                {
-                    theoreticals_by_accession[decoy_number][accession] = theoreticals_by_accession[decoy_number][accession].Except(new List<TheoreticalProteoform>() { t }).ToList();
-                }
-            });
             return theoretical_proteoforms;
         }
 
