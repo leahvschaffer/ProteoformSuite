@@ -42,6 +42,7 @@
             this.btn_clearFiles = new System.Windows.Forms.Button();
             this.splitContainer8 = new System.Windows.Forms.SplitContainer();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ckbx_reduced_disulfide = new System.Windows.Forms.CheckBox();
             this.nud_randomSeed = new System.Windows.Forms.NumericUpDown();
             this.cb_limitLargePtmSets = new System.Windows.Forms.CheckBox();
             this.cb_useRandomSeed = new System.Windows.Forms.CheckBox();
@@ -80,7 +81,6 @@
             this.dgv_Database = new System.Windows.Forms.DataGridView();
             this.dgv_unlocalizedModifications = new System.Windows.Forms.DataGridView();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.ckbx_reduced_disulfide = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -343,6 +343,20 @@
             this.groupBox3.TabIndex = 49;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Theoretical Database Creation";
+            // 
+            // ckbx_reduced_disulfide
+            // 
+            this.ckbx_reduced_disulfide.AutoSize = true;
+            this.ckbx_reduced_disulfide.Checked = true;
+            this.ckbx_reduced_disulfide.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbx_reduced_disulfide.Location = new System.Drawing.Point(16, 37);
+            this.ckbx_reduced_disulfide.Margin = new System.Windows.Forms.Padding(2);
+            this.ckbx_reduced_disulfide.Name = "ckbx_reduced_disulfide";
+            this.ckbx_reduced_disulfide.Size = new System.Drawing.Size(146, 17);
+            this.ckbx_reduced_disulfide.TabIndex = 52;
+            this.ckbx_reduced_disulfide.Text = "Reduced Disulfide Bonds";
+            this.ckbx_reduced_disulfide.UseVisualStyleBackColor = true;
+            this.ckbx_reduced_disulfide.CheckedChanged += new System.EventHandler(this.ckbx_reduced_disulfide_CheckedChanged);
             // 
             // nud_randomSeed
             // 
@@ -810,20 +824,6 @@
             this.splitter1.Size = new System.Drawing.Size(3, 737);
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
-            // 
-            // ckbx_reduced_disulfide
-            // 
-            this.ckbx_reduced_disulfide.AutoSize = true;
-            this.ckbx_reduced_disulfide.Checked = true;
-            this.ckbx_reduced_disulfide.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbx_reduced_disulfide.Location = new System.Drawing.Point(16, 37);
-            this.ckbx_reduced_disulfide.Margin = new System.Windows.Forms.Padding(2);
-            this.ckbx_reduced_disulfide.Name = "ckbx_reduced_disulfide";
-            this.ckbx_reduced_disulfide.Size = new System.Drawing.Size(146, 17);
-            this.ckbx_reduced_disulfide.TabIndex = 52;
-            this.ckbx_reduced_disulfide.Text = "Reduced Disulfide Bonds";
-            this.ckbx_reduced_disulfide.UseVisualStyleBackColor = true;
-            this.ckbx_reduced_disulfide.CheckedChanged += new System.EventHandler(this.ckbx_reduced_disulfide_CheckedChanged);
             // 
             // TheoreticalDatabase
             // 

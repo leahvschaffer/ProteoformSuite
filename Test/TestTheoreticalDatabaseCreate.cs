@@ -369,5 +369,50 @@ namespace Test
                 () => db.EnterTheoreticalProteformFamily("SEQ", p, p.OneBasedPossibleLocalizedModifications, p.Accession, ts, 1, var)
             );
         }
+
+        [Test]
+        public void make_theoretical_database_with_nonReduced_disulfides()
+        {
+            Sweet.lollipop = new Lollipop();
+            Sweet.lollipop.natural_lysine_isotope_abundance = true;
+            Sweet.lollipop.neucode_light_lysine = false;
+            Sweet.lollipop.methionine_oxidation = false;
+            Sweet.lollipop.methionine_cleavage = true;
+            Sweet.lollipop.carbamidomethylation = false;
+            Sweet.lollipop.reduced_disulfides = false;
+            Sweet.lollipop.combine_identical_sequences = false;
+            Sweet.lollipop.max_ptms = 0;
+            Sweet.lollipop.input_files.Clear();
+            Sweet.lollipop.enter_input_files(new [] { Path.Combine(TestContext.CurrentContext.TestDirectory, "ins1ins2glucagon_mouse.xml") }, Lollipop.acceptable_extensions[2], Lollipop.file_types[2], Sweet.lollipop.input_files, false);
+            Sweet.lollipop.enter_input_files(new [] { Path.Combine(TestContext.CurrentContext.TestDirectory, "ptmlist.txt") }, Lollipop.acceptable_extensions[2], Lollipop.file_types[2], Sweet.lollipop.input_files, false);
+            Sweet.lollipop.theoretical_database.theoretical_proteins.Clear();
+            Sweet.lollipop.target_proteoform_community.theoretical_proteoforms = new TheoreticalProteoform[0];
+            Sweet.lollipop.theoretical_database.get_theoretical_proteoforms(Path.Combine(TestContext.CurrentContext.TestDirectory));
+            Assert.AreEqual(66, Sweet.lollipop.target_proteoform_community.theoretical_proteoforms.Length);
+            Assert.AreEqual(17, Sweet.lollipop.target_proteoform_community.theoretical_proteoforms.Count(p => p.fragment.Contains("bonded frag")));
+            List<TheoreticalProteoform> asdf = Sweet.lollipop.target_proteoform_community.theoretical_proteoforms
+                .Where(p => p.fragment.Contains("bonded frag")).ToList();
+            List<double> bondedFragmentMasses = Sweet.lollipop.target_proteoform_community.theoretical_proteoforms
+                .Where(p => p.fragment.Contains("bonded frag")).Select(p => Math.Round(p.modified_mass, 4)).ToList();
+            
+            Assert.Contains(2195.8632, bondedFragmentMasses);
+            Assert.Contains(5629.5736, bondedFragmentMasses);
+            Assert.Contains(5751.7165, bondedFragmentMasses);
+            Assert.Contains(5799.6791, bondedFragmentMasses);
+            Assert.Contains(9185.4269, bondedFragmentMasses);
+            Assert.Contains(9327.5236, bondedFragmentMasses);
+            Assert.Contains(9479.6185, bondedFragmentMasses);
+            Assert.Contains(12015.1166, bondedFragmentMasses);
+            Assert.Contains(2650.1648, bondedFragmentMasses);
+            Assert.Contains(5763.7165, bondedFragmentMasses);
+            Assert.Contains(5792.6039, bondedFragmentMasses);
+            Assert.Contains(6076.8000, bondedFragmentMasses);
+            Assert.Contains(9190.3516, bondedFragmentMasses);
+            Assert.Contains(9218.3578, bondedFragmentMasses);
+            Assert.Contains(9484.5433, bondedFragmentMasses);
+            Assert.Contains(12219.0255, bondedFragmentMasses);
+            Assert.Contains(2365.9687, bondedFragmentMasses);
+
+        }
     }
 }

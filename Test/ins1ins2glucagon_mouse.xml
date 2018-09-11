@@ -1,0 +1,2603 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<uniprot xmlns="http://uniprot.org/uniprot" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://uniprot.org/uniprot http://www.uniprot.org/support/docs/uniprot.xsd">
+<entry dataset="Swiss-Prot" created="1986-07-21" modified="2018-07-18" version="174">
+<accession>P01325</accession>
+<accession>Q545I7</accession>
+<accession>Q9D907</accession>
+<name>INS1_MOUSE</name>
+<protein>
+<recommendedName>
+<fullName>Insulin-1</fullName>
+</recommendedName>
+<component>
+<recommendedName>
+<fullName>Insulin-1 B chain</fullName>
+</recommendedName>
+</component>
+<component>
+<recommendedName>
+<fullName>Insulin-1 A chain</fullName>
+</recommendedName>
+</component>
+</protein>
+<gene>
+<name type="primary">Ins1</name>
+<name type="synonym">Ins-1</name>
+</gene>
+<organism>
+<name type="scientific">Mus musculus</name>
+<name type="common">Mouse</name>
+<dbReference type="NCBI Taxonomy" id="10090"/>
+<lineage>
+<taxon>Eukaryota</taxon>
+<taxon>Metazoa</taxon>
+<taxon>Chordata</taxon>
+<taxon>Craniata</taxon>
+<taxon>Vertebrata</taxon>
+<taxon>Euteleostomi</taxon>
+<taxon>Mammalia</taxon>
+<taxon>Eutheria</taxon>
+<taxon>Euarchontoglires</taxon>
+<taxon>Glires</taxon>
+<taxon>Rodentia</taxon>
+<taxon>Myomorpha</taxon>
+<taxon>Muroidea</taxon>
+<taxon>Muridae</taxon>
+<taxon>Murinae</taxon>
+<taxon>Mus</taxon>
+<taxon>Mus</taxon>
+</lineage>
+</organism>
+<reference key="1">
+<citation type="journal article" date="1986" name="J. Mol. Evol." volume="23" first="305" last="312">
+<title>Characterization of the two nonallelic genes encoding mouse preproinsulin.</title>
+<authorList>
+<person name="Wentworth B.M."/>
+<person name="Schaefer I.M."/>
+<person name="Villa-Komaroff L."/>
+<person name="Chirgwin J.M."/>
+</authorList>
+<dbReference type="PubMed" id="3104603"/>
+<dbReference type="DOI" id="10.1007/BF02100639"/>
+</citation>
+<scope>NUCLEOTIDE SEQUENCE [GENOMIC DNA]</scope>
+</reference>
+<reference key="2">
+<citation type="journal article" date="1990" name="J. Mol. Endocrinol." volume="5" first="61" last="67">
+<title>Molecular cloning and DNA sequence analysis of preproinsulin genes in the NON mouse, an animal model of human non-obese, non-insulin-dependent diabetes mellitus.</title>
+<authorList>
+<person name="Sawa T."/>
+<person name="Ohgaku S."/>
+<person name="Morioka H."/>
+<person name="Yano S."/>
+</authorList>
+<dbReference type="PubMed" id="2397023"/>
+<dbReference type="DOI" id="10.1677/jme.0.0050061"/>
+</citation>
+<scope>NUCLEOTIDE SEQUENCE [GENOMIC DNA]</scope>
+<source>
+<strain>NON/ShiLtJ</strain>
+</source>
+</reference>
+<reference key="3">
+<citation type="journal article" date="2006" name="Nat. Genet." volume="38" first="688" last="693">
+<title>Positional cloning of Sorcs1, a type 2 diabetes quantitative trait locus.</title>
+<authorList>
+<person name="Clee S.M."/>
+<person name="Yandell B.S."/>
+<person name="Schueler K.M."/>
+<person name="Rabaglia M.E."/>
+<person name="Richards O.C."/>
+<person name="Raines S.M."/>
+<person name="Kabara E.A."/>
+<person name="Klass D.M."/>
+<person name="Mui E.T.-K."/>
+<person name="Stapleton D.S."/>
+<person name="Gray-Keller M.P."/>
+<person name="Young M.B."/>
+<person name="Stoehr J.P."/>
+<person name="Lan H."/>
+<person name="Boronenkov I."/>
+<person name="Raess P.W."/>
+<person name="Flowers M.T."/>
+<person name="Attie A.D."/>
+</authorList>
+<dbReference type="PubMed" id="16682971"/>
+<dbReference type="DOI" id="10.1038/ng1796"/>
+</citation>
+<scope>NUCLEOTIDE SEQUENCE [GENOMIC DNA]</scope>
+<source>
+<strain>BTBR T+ tf/J</strain>
+</source>
+</reference>
+<reference key="4">
+<citation type="journal article" date="2005" name="Science" volume="309" first="1559" last="1563">
+<title>The transcriptional landscape of the mammalian genome.</title>
+<authorList>
+<person name="Carninci P."/>
+<person name="Kasukawa T."/>
+<person name="Katayama S."/>
+<person name="Gough J."/>
+<person name="Frith M.C."/>
+<person name="Maeda N."/>
+<person name="Oyama R."/>
+<person name="Ravasi T."/>
+<person name="Lenhard B."/>
+<person name="Wells C."/>
+<person name="Kodzius R."/>
+<person name="Shimokawa K."/>
+<person name="Bajic V.B."/>
+<person name="Brenner S.E."/>
+<person name="Batalov S."/>
+<person name="Forrest A.R."/>
+<person name="Zavolan M."/>
+<person name="Davis M.J."/>
+<person name="Wilming L.G."/>
+<person name="Aidinis V."/>
+<person name="Allen J.E."/>
+<person name="Ambesi-Impiombato A."/>
+<person name="Apweiler R."/>
+<person name="Aturaliya R.N."/>
+<person name="Bailey T.L."/>
+<person name="Bansal M."/>
+<person name="Baxter L."/>
+<person name="Beisel K.W."/>
+<person name="Bersano T."/>
+<person name="Bono H."/>
+<person name="Chalk A.M."/>
+<person name="Chiu K.P."/>
+<person name="Choudhary V."/>
+<person name="Christoffels A."/>
+<person name="Clutterbuck D.R."/>
+<person name="Crowe M.L."/>
+<person name="Dalla E."/>
+<person name="Dalrymple B.P."/>
+<person name="de Bono B."/>
+<person name="Della Gatta G."/>
+<person name="di Bernardo D."/>
+<person name="Down T."/>
+<person name="Engstrom P."/>
+<person name="Fagiolini M."/>
+<person name="Faulkner G."/>
+<person name="Fletcher C.F."/>
+<person name="Fukushima T."/>
+<person name="Furuno M."/>
+<person name="Futaki S."/>
+<person name="Gariboldi M."/>
+<person name="Georgii-Hemming P."/>
+<person name="Gingeras T.R."/>
+<person name="Gojobori T."/>
+<person name="Green R.E."/>
+<person name="Gustincich S."/>
+<person name="Harbers M."/>
+<person name="Hayashi Y."/>
+<person name="Hensch T.K."/>
+<person name="Hirokawa N."/>
+<person name="Hill D."/>
+<person name="Huminiecki L."/>
+<person name="Iacono M."/>
+<person name="Ikeo K."/>
+<person name="Iwama A."/>
+<person name="Ishikawa T."/>
+<person name="Jakt M."/>
+<person name="Kanapin A."/>
+<person name="Katoh M."/>
+<person name="Kawasawa Y."/>
+<person name="Kelso J."/>
+<person name="Kitamura H."/>
+<person name="Kitano H."/>
+<person name="Kollias G."/>
+<person name="Krishnan S.P."/>
+<person name="Kruger A."/>
+<person name="Kummerfeld S.K."/>
+<person name="Kurochkin I.V."/>
+<person name="Lareau L.F."/>
+<person name="Lazarevic D."/>
+<person name="Lipovich L."/>
+<person name="Liu J."/>
+<person name="Liuni S."/>
+<person name="McWilliam S."/>
+<person name="Madan Babu M."/>
+<person name="Madera M."/>
+<person name="Marchionni L."/>
+<person name="Matsuda H."/>
+<person name="Matsuzawa S."/>
+<person name="Miki H."/>
+<person name="Mignone F."/>
+<person name="Miyake S."/>
+<person name="Morris K."/>
+<person name="Mottagui-Tabar S."/>
+<person name="Mulder N."/>
+<person name="Nakano N."/>
+<person name="Nakauchi H."/>
+<person name="Ng P."/>
+<person name="Nilsson R."/>
+<person name="Nishiguchi S."/>
+<person name="Nishikawa S."/>
+<person name="Nori F."/>
+<person name="Ohara O."/>
+<person name="Okazaki Y."/>
+<person name="Orlando V."/>
+<person name="Pang K.C."/>
+<person name="Pavan W.J."/>
+<person name="Pavesi G."/>
+<person name="Pesole G."/>
+<person name="Petrovsky N."/>
+<person name="Piazza S."/>
+<person name="Reed J."/>
+<person name="Reid J.F."/>
+<person name="Ring B.Z."/>
+<person name="Ringwald M."/>
+<person name="Rost B."/>
+<person name="Ruan Y."/>
+<person name="Salzberg S.L."/>
+<person name="Sandelin A."/>
+<person name="Schneider C."/>
+<person name="Schoenbach C."/>
+<person name="Sekiguchi K."/>
+<person name="Semple C.A."/>
+<person name="Seno S."/>
+<person name="Sessa L."/>
+<person name="Sheng Y."/>
+<person name="Shibata Y."/>
+<person name="Shimada H."/>
+<person name="Shimada K."/>
+<person name="Silva D."/>
+<person name="Sinclair B."/>
+<person name="Sperling S."/>
+<person name="Stupka E."/>
+<person name="Sugiura K."/>
+<person name="Sultana R."/>
+<person name="Takenaka Y."/>
+<person name="Taki K."/>
+<person name="Tammoja K."/>
+<person name="Tan S.L."/>
+<person name="Tang S."/>
+<person name="Taylor M.S."/>
+<person name="Tegner J."/>
+<person name="Teichmann S.A."/>
+<person name="Ueda H.R."/>
+<person name="van Nimwegen E."/>
+<person name="Verardo R."/>
+<person name="Wei C.L."/>
+<person name="Yagi K."/>
+<person name="Yamanishi H."/>
+<person name="Zabarovsky E."/>
+<person name="Zhu S."/>
+<person name="Zimmer A."/>
+<person name="Hide W."/>
+<person name="Bult C."/>
+<person name="Grimmond S.M."/>
+<person name="Teasdale R.D."/>
+<person name="Liu E.T."/>
+<person name="Brusic V."/>
+<person name="Quackenbush J."/>
+<person name="Wahlestedt C."/>
+<person name="Mattick J.S."/>
+<person name="Hume D.A."/>
+<person name="Kai C."/>
+<person name="Sasaki D."/>
+<person name="Tomaru Y."/>
+<person name="Fukuda S."/>
+<person name="Kanamori-Katayama M."/>
+<person name="Suzuki M."/>
+<person name="Aoki J."/>
+<person name="Arakawa T."/>
+<person name="Iida J."/>
+<person name="Imamura K."/>
+<person name="Itoh M."/>
+<person name="Kato T."/>
+<person name="Kawaji H."/>
+<person name="Kawagashira N."/>
+<person name="Kawashima T."/>
+<person name="Kojima M."/>
+<person name="Kondo S."/>
+<person name="Konno H."/>
+<person name="Nakano K."/>
+<person name="Ninomiya N."/>
+<person name="Nishio T."/>
+<person name="Okada M."/>
+<person name="Plessy C."/>
+<person name="Shibata K."/>
+<person name="Shiraki T."/>
+<person name="Suzuki S."/>
+<person name="Tagami M."/>
+<person name="Waki K."/>
+<person name="Watahiki A."/>
+<person name="Okamura-Oho Y."/>
+<person name="Suzuki H."/>
+<person name="Kawai J."/>
+<person name="Hayashizaki Y."/>
+</authorList>
+<dbReference type="PubMed" id="16141072"/>
+<dbReference type="DOI" id="10.1126/science.1112014"/>
+</citation>
+<scope>NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]</scope>
+<source>
+<strain>C57BL/6J</strain>
+<tissue>Pancreas</tissue>
+<tissue>Pancreas islet cell</tissue>
+</source>
+</reference>
+<reference key="5">
+<citation type="journal article" date="2009" name="PLoS Biol." volume="7" first="E1000112" last="E1000112">
+<title>Lineage-specific biology revealed by a finished genome assembly of the mouse.</title>
+<authorList>
+<person name="Church D.M."/>
+<person name="Goodstadt L."/>
+<person name="Hillier L.W."/>
+<person name="Zody M.C."/>
+<person name="Goldstein S."/>
+<person name="She X."/>
+<person name="Bult C.J."/>
+<person name="Agarwala R."/>
+<person name="Cherry J.L."/>
+<person name="DiCuccio M."/>
+<person name="Hlavina W."/>
+<person name="Kapustin Y."/>
+<person name="Meric P."/>
+<person name="Maglott D."/>
+<person name="Birtle Z."/>
+<person name="Marques A.C."/>
+<person name="Graves T."/>
+<person name="Zhou S."/>
+<person name="Teague B."/>
+<person name="Potamousis K."/>
+<person name="Churas C."/>
+<person name="Place M."/>
+<person name="Herschleb J."/>
+<person name="Runnheim R."/>
+<person name="Forrest D."/>
+<person name="Amos-Landgraf J."/>
+<person name="Schwartz D.C."/>
+<person name="Cheng Z."/>
+<person name="Lindblad-Toh K."/>
+<person name="Eichler E.E."/>
+<person name="Ponting C.P."/>
+</authorList>
+<dbReference type="PubMed" id="19468303"/>
+<dbReference type="DOI" id="10.1371/journal.pbio.1000112"/>
+</citation>
+<scope>NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]</scope>
+<source>
+<strain>C57BL/6J</strain>
+</source>
+</reference>
+<reference key="6">
+<citation type="submission" date="2005-07" db="EMBL/GenBank/DDBJ databases">
+<authorList>
+<person name="Mural R.J."/>
+<person name="Adams M.D."/>
+<person name="Myers E.W."/>
+<person name="Smith H.O."/>
+<person name="Venter J.C."/>
+</authorList>
+</citation>
+<scope>NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]</scope>
+</reference>
+<reference key="7">
+<citation type="journal article" date="2004" name="Genome Res." volume="14" first="2121" last="2127">
+<title>The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).</title>
+<authorList>
+<consortium name="The MGC Project Team"/>
+</authorList>
+<dbReference type="PubMed" id="15489334"/>
+<dbReference type="DOI" id="10.1101/gr.2596504"/>
+</citation>
+<scope>NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]</scope>
+<source>
+<tissue>Pancreas</tissue>
+</source>
+</reference>
+<reference key="8">
+<citation type="journal article" date="1972" name="Hoppe-Seyler's Z. Physiol. Chem." volume="353" first="451" last="458">
+<title>Amino acid sequence of the two insulins from mouse (Maus musculus).</title>
+<authorList>
+<person name="Buenzli H.F."/>
+<person name="Glatthaar B."/>
+<person name="Kunz P."/>
+<person name="Muelhaupt E."/>
+<person name="Humbel R.E."/>
+</authorList>
+<dbReference type="PubMed" id="5063718"/>
+</citation>
+<scope>PROTEIN SEQUENCE OF 25-54 AND 88-108</scope>
+</reference>
+<reference key="9">
+<citation type="journal article" date="2010" name="Cell" volume="143" first="1174" last="1189">
+<title>A tissue-specific atlas of mouse protein phosphorylation and expression.</title>
+<authorList>
+<person name="Huttlin E.L."/>
+<person name="Jedrychowski M.P."/>
+<person name="Elias J.E."/>
+<person name="Goswami T."/>
+<person name="Rad R."/>
+<person name="Beausoleil S.A."/>
+<person name="Villen J."/>
+<person name="Haas W."/>
+<person name="Sowa M.E."/>
+<person name="Gygi S.P."/>
+</authorList>
+<dbReference type="PubMed" id="21183079"/>
+<dbReference type="DOI" id="10.1016/j.cell.2010.12.001"/>
+</citation>
+<scope>IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]</scope>
+<source>
+<tissue>Pancreas</tissue>
+</source>
+</reference>
+<comment type="function">
+<text>Insulin decreases blood glucose concentration. It increases cell permeability to monosaccharides, amino acids and fatty acids. It accelerates glycolysis, the pentose phosphate cycle, and glycogen synthesis in liver.</text>
+</comment>
+<comment type="subunit">
+<text evidence="1">Heterodimer of a B chain and an A chain linked by two disulfide bonds.</text>
+</comment>
+<comment type="subcellular location">
+<subcellularLocation>
+<location>Secreted</location>
+</subcellularLocation>
+</comment>
+<comment type="similarity">
+<text evidence="3">Belongs to the insulin family.</text>
+</comment>
+<dbReference type="EMBL" id="X04725">
+<property type="protein sequence ID" value="CAA28434.1"/>
+<property type="molecule type" value="Genomic_DNA"/>
+</dbReference>
+<dbReference type="EMBL" id="DQ479923">
+<property type="protein sequence ID" value="ABF48502.1"/>
+<property type="molecule type" value="Genomic_DNA"/>
+</dbReference>
+<dbReference type="EMBL" id="AK007345">
+<property type="protein sequence ID" value="BAB24974.1"/>
+<property type="molecule type" value="mRNA"/>
+</dbReference>
+<dbReference type="EMBL" id="AK007482">
+<property type="protein sequence ID" value="BAB25058.1"/>
+<property type="molecule type" value="mRNA"/>
+</dbReference>
+<dbReference type="EMBL" id="AK008358">
+<property type="protein sequence ID" value="BAB25628.1"/>
+<property type="molecule type" value="mRNA"/>
+</dbReference>
+<dbReference type="EMBL" id="AK148541">
+<property type="protein sequence ID" value="BAE28611.1"/>
+<property type="molecule type" value="mRNA"/>
+</dbReference>
+<dbReference type="EMBL" id="AC163452">
+<property type="status" value="NOT_ANNOTATED_CDS"/>
+<property type="molecule type" value="Genomic_DNA"/>
+</dbReference>
+<dbReference type="EMBL" id="CH466585">
+<property type="protein sequence ID" value="EDL01682.1"/>
+<property type="molecule type" value="Genomic_DNA"/>
+</dbReference>
+<dbReference type="EMBL" id="CH466585">
+<property type="protein sequence ID" value="EDL01683.1"/>
+<property type="molecule type" value="Genomic_DNA"/>
+</dbReference>
+<dbReference type="EMBL" id="BC098468">
+<property type="protein sequence ID" value="AAH98468.1"/>
+<property type="molecule type" value="mRNA"/>
+</dbReference>
+<dbReference type="EMBL" id="BC145868">
+<property type="protein sequence ID" value="AAI45869.1"/>
+<property type="molecule type" value="mRNA"/>
+</dbReference>
+<dbReference type="EMBL" id="BC145870">
+<property type="protein sequence ID" value="AAI45871.1"/>
+<property type="molecule type" value="mRNA"/>
+</dbReference>
+<dbReference type="CCDS" id="CCDS29898.1"/>
+<dbReference type="PIR" id="B26342">
+<property type="entry name" value="INMS1"/>
+</dbReference>
+<dbReference type="RefSeq" id="NP_032412.3">
+<property type="nucleotide sequence ID" value="NM_008386.4"/>
+</dbReference>
+<dbReference type="UniGene" id="Mm.46269"/>
+<dbReference type="PDB" id="1L6Q">
+<property type="method" value="Model"/>
+<property type="chains" value="C=39-47"/>
+</dbReference>
+<dbReference type="PDB" id="3WS3">
+<property type="method" value="X-ray"/>
+<property type="resolution" value="2.34"/>
+<property type="chains" value="E/F=101-107"/>
+</dbReference>
+<dbReference type="PDBsum" id="1L6Q"/>
+<dbReference type="PDBsum" id="3WS3"/>
+<dbReference type="ProteinModelPortal" id="P01325"/>
+<dbReference type="SMR" id="P01325"/>
+<dbReference type="IntAct" id="P01325">
+<property type="interactions" value="2"/>
+</dbReference>
+<dbReference type="MINT" id="P01325"/>
+<dbReference type="STRING" id="10090.ENSMUSP00000049095"/>
+<dbReference type="PaxDb" id="P01325"/>
+<dbReference type="PRIDE" id="P01325"/>
+<dbReference type="Ensembl" id="ENSMUST00000039652">
+<property type="protein sequence ID" value="ENSMUSP00000049095"/>
+<property type="gene ID" value="ENSMUSG00000035804"/>
+</dbReference>
+<dbReference type="GeneID" id="16333"/>
+<dbReference type="KEGG" id="mmu:16333"/>
+<dbReference type="UCSC" id="uc008hwd.1">
+<property type="organism name" value="mouse"/>
+</dbReference>
+<dbReference type="CTD" id="16333"/>
+<dbReference type="MGI" id="MGI:96572">
+<property type="gene designation" value="Ins1"/>
+</dbReference>
+<dbReference type="eggNOG" id="ENOG410J0XC">
+<property type="taxonomic scope" value="Eukaryota"/>
+</dbReference>
+<dbReference type="eggNOG" id="ENOG4111VJB">
+<property type="taxonomic scope" value="LUCA"/>
+</dbReference>
+<dbReference type="GeneTree" id="ENSGT00390000015440"/>
+<dbReference type="HOGENOM" id="HOG000261669"/>
+<dbReference type="HOVERGEN" id="HBG006137"/>
+<dbReference type="InParanoid" id="P01325"/>
+<dbReference type="KO" id="K04526"/>
+<dbReference type="OMA" id="PQHLCGS"/>
+<dbReference type="OrthoDB" id="EOG091G0H56"/>
+<dbReference type="PhylomeDB" id="P01325"/>
+<dbReference type="TreeFam" id="TF332820"/>
+<dbReference type="Reactome" id="R-MMU-264876">
+<property type="pathway name" value="Insulin processing"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-422085">
+<property type="pathway name" value="Synthesis, secretion, and deacylation of Ghrelin"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-6807878">
+<property type="pathway name" value="COPI-mediated anterograde transport"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-6811558">
+<property type="pathway name" value="PI5P, PP2A and IER3 Regulate PI3K/AKT Signaling"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-74713">
+<property type="pathway name" value="IRS activation"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-74749">
+<property type="pathway name" value="Signal attenuation"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-74751">
+<property type="pathway name" value="Insulin receptor signalling cascade"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-74752">
+<property type="pathway name" value="Signaling by Insulin receptor"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-77387">
+<property type="pathway name" value="Insulin receptor recycling"/>
+</dbReference>
+<dbReference type="PRO" id="PR:P01325"/>
+<dbReference type="Proteomes" id="UP000000589">
+<property type="component" value="Chromosome 19"/>
+</dbReference>
+<dbReference type="Bgee" id="ENSMUSG00000035804"/>
+<dbReference type="CleanEx" id="MM_INS1"/>
+<dbReference type="Genevisible" id="P01325">
+<property type="organism ID" value="MM"/>
+</dbReference>
+<dbReference type="GO" id="GO:0005829">
+<property type="term" value="C:cytosol"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0005576">
+<property type="term" value="C:extracellular region"/>
+<property type="evidence" value="ECO:0000304"/>
+<property type="project" value="Reactome"/>
+</dbReference>
+<dbReference type="GO" id="GO:0005615">
+<property type="term" value="C:extracellular space"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0030141">
+<property type="term" value="C:secretory granule"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0034774">
+<property type="term" value="C:secretory granule lumen"/>
+<property type="evidence" value="ECO:0000304"/>
+<property type="project" value="Reactome"/>
+</dbReference>
+<dbReference type="GO" id="GO:0051087">
+<property type="term" value="F:chaperone binding"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0005179">
+<property type="term" value="F:hormone activity"/>
+<property type="evidence" value="ECO:0000501"/>
+<property type="project" value="UniProtKB-KW"/>
+</dbReference>
+<dbReference type="GO" id="GO:0005158">
+<property type="term" value="F:insulin receptor binding"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0002020">
+<property type="term" value="F:protease binding"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0031018">
+<property type="term" value="P:endocrine pancreas development"/>
+<property type="evidence" value="ECO:0000304"/>
+<property type="project" value="Reactome"/>
+</dbReference>
+<dbReference type="GO" id="GO:0006006">
+<property type="term" value="P:glucose metabolic process"/>
+<property type="evidence" value="ECO:0000501"/>
+<property type="project" value="UniProtKB-KW"/>
+</dbReference>
+<dbReference type="GO" id="GO:1904659">
+<property type="term" value="P:glucose transmembrane transport"/>
+<property type="evidence" value="ECO:0000304"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0051591">
+<property type="term" value="P:response to cAMP"/>
+<property type="evidence" value="ECO:0000501"/>
+<property type="project" value="Ensembl"/>
+</dbReference>
+<dbReference type="GO" id="GO:0034097">
+<property type="term" value="P:response to cytokine"/>
+<property type="evidence" value="ECO:0000501"/>
+<property type="project" value="Ensembl"/>
+</dbReference>
+<dbReference type="GO" id="GO:0043434">
+<property type="term" value="P:response to peptide hormone"/>
+<property type="evidence" value="ECO:0000501"/>
+<property type="project" value="Ensembl"/>
+</dbReference>
+<dbReference type="InterPro" id="IPR004825">
+<property type="entry name" value="Insulin"/>
+</dbReference>
+<dbReference type="InterPro" id="IPR016179">
+<property type="entry name" value="Insulin-like"/>
+</dbReference>
+<dbReference type="InterPro" id="IPR036438">
+<property type="entry name" value="Insulin-like_sf"/>
+</dbReference>
+<dbReference type="InterPro" id="IPR022353">
+<property type="entry name" value="Insulin_CS"/>
+</dbReference>
+<dbReference type="InterPro" id="IPR022352">
+<property type="entry name" value="Insulin_family"/>
+</dbReference>
+<dbReference type="Pfam" id="PF00049">
+<property type="entry name" value="Insulin"/>
+<property type="match status" value="1"/>
+</dbReference>
+<dbReference type="PRINTS" id="PR00277">
+<property type="entry name" value="INSULIN"/>
+</dbReference>
+<dbReference type="PRINTS" id="PR00276">
+<property type="entry name" value="INSULINFAMLY"/>
+</dbReference>
+<dbReference type="SMART" id="SM00078">
+<property type="entry name" value="IlGF"/>
+<property type="match status" value="1"/>
+</dbReference>
+<dbReference type="SUPFAM" id="SSF56994">
+<property type="entry name" value="SSF56994"/>
+<property type="match status" value="1"/>
+</dbReference>
+<dbReference type="PROSITE" id="PS00262">
+<property type="entry name" value="INSULIN"/>
+<property type="match status" value="1"/>
+</dbReference>
+<proteinExistence type="evidence at protein level"/>
+<keyword id="KW-0002">3D-structure</keyword>
+<keyword id="KW-0119">Carbohydrate metabolism</keyword>
+<keyword id="KW-0165">Cleavage on pair of basic residues</keyword>
+<keyword id="KW-0181">Complete proteome</keyword>
+<keyword id="KW-0903">Direct protein sequencing</keyword>
+<keyword id="KW-1015">Disulfide bond</keyword>
+<keyword id="KW-0313">Glucose metabolism</keyword>
+<keyword id="KW-0372">Hormone</keyword>
+<keyword id="KW-1185">Reference proteome</keyword>
+<keyword id="KW-0964">Secreted</keyword>
+<keyword id="KW-0732">Signal</keyword>
+<feature type="signal peptide" evidence="2">
+<location>
+<begin position="1"/>
+<end position="24"/>
+</location>
+</feature>
+<feature type="peptide" description="preproinsulin">
+<location>
+<begin position="1"/>
+<end position="108"/>
+</location>
+</feature>
+<feature type="peptide" description= "proinsulin">
+<location>
+<begin position="25"/>
+<end position="108"/>
+</location>
+</feature>
+<feature type="peptide" description="des64,65 Proinsulin-firsthalf">
+<location>
+<begin position="25"/>
+<end position="87"/>
+</location>
+</feature>
+<feature type="peptide" description="des64,65 Proinsulin-secondhalf">
+<location>
+<begin position="90"/>
+<end position="108"/>
+</location>
+</feature>
+<feature type="peptide" description="des31,32 Proinsulin-secondhalf">
+<location>
+<begin position="57"/>
+<end position="108"/>
+</location>
+</feature>
+<feature type="peptide" description="immature C-chain-no CPE cleavage">
+<location>
+<begin position="55"/>
+<end position="87"/>
+</location>
+</feature>
+<feature type="peptide" description="mature C-chain">
+<location>
+<begin position="57"/>
+<end position="87"/>
+</location>
+</feature>
+<feature type="peptide" description="Insulin-1 B chain" id="PRO_0000015842">
+<location>
+<begin position="25"/>
+<end position="54"/>
+</location>
+</feature>
+<feature type="propeptide" description="C peptide" id="PRO_0000015843">
+<location>
+<begin position="57"/>
+<end position="85"/>
+</location>
+</feature>
+<feature type="peptide" description="Insulin-1 A chain" id="PRO_0000015844">
+<location>
+<begin position="88"/>
+<end position="108"/>
+</location>
+</feature>
+<feature type="disulfide bond" description="Interchain (between B and A chains)" evidence="1">
+<location>
+<begin position="31"/>
+<end position="94"/>
+</location>
+</feature>
+<feature type="disulfide bond" description="Interchain (between B and A chains)" evidence="1">
+<location>
+<begin position="43"/>
+<end position="107"/>
+</location>
+</feature>
+<feature type="disulfide bond" evidence="1">
+<location>
+<begin position="93"/>
+<end position="98"/>
+</location>
+</feature>
+<feature type="modified residue" description="Hex(1)HexNAc(1) on T">
+<location>
+<position position="51"	/>
+</location>
+</feature>
+<feature type="modified residue" description="Hex(1)HexNAc(1)NeuAc(1) on T">
+<location>
+<position position="51"	/>
+</location>
+</feature>
+<feature type="modified residue" description="Hex(1)HexNAc(1)NeuAc(2) on T">
+<location>
+<position position="77"	/>
+</location>
+</feature>
+<feature type="modified residue" description="Hex(1)HexNAc(1)NeuAc(1)NeuGc(1) on T">
+<location>
+<position position="77"	/>
+</location>
+</feature>
+<feature type="sequence conflict" description="In Ref. 4; BAB25058." ref="4" evidence="3">
+<original>E</original>
+<variation>K</variation>
+<location>
+<position position="37"/>
+</location>
+</feature>
+<evidence key="1" type="ECO:0000250">
+<source>
+<dbReference type="UniProtKB" id="P01308"/>
+</source>
+</evidence>
+<evidence key="2" type="ECO:0000269">
+<source>
+<dbReference type="PubMed" id="5063718"/>
+</source>
+</evidence>
+<evidence key="3" type="ECO:0000305"/>
+<sequence length="108" mass="12160" checksum="F63D9B7B896E0F88" modified="1987-08-13" version="1" precursor="true">
+MALLVHFLPLLALLALWEPKPTQAFVKQHLCGPHLVEALYLVCGERGFFYTPKSRREVED
+PQVEQLELGGSPGDLQTLALEVARQKRGIVDQCCTSICSLYQLENYCN
+</sequence>
+</entry>
+<entry dataset="Swiss-Prot" created="1986-07-21" modified="2018-06-20" version="172">
+<accession>P01326</accession>
+<name>INS2_MOUSE</name>
+<protein>
+<recommendedName>
+<fullName>Insulin-2</fullName>
+</recommendedName>
+<component>
+<recommendedName>
+<fullName>Insulin-2 B chain</fullName>
+</recommendedName>
+</component>
+<component>
+<recommendedName>
+<fullName>Insulin-2 A chain</fullName>
+</recommendedName>
+</component>
+</protein>
+<gene>
+<name type="primary">Ins2</name>
+<name type="synonym">Ins-2</name>
+</gene>
+<organism>
+<name type="scientific">Mus musculus</name>
+<name type="common">Mouse</name>
+<dbReference type="NCBI Taxonomy" id="10090"/>
+<lineage>
+<taxon>Eukaryota</taxon>
+<taxon>Metazoa</taxon>
+<taxon>Chordata</taxon>
+<taxon>Craniata</taxon>
+<taxon>Vertebrata</taxon>
+<taxon>Euteleostomi</taxon>
+<taxon>Mammalia</taxon>
+<taxon>Eutheria</taxon>
+<taxon>Euarchontoglires</taxon>
+<taxon>Glires</taxon>
+<taxon>Rodentia</taxon>
+<taxon>Myomorpha</taxon>
+<taxon>Muroidea</taxon>
+<taxon>Muridae</taxon>
+<taxon>Murinae</taxon>
+<taxon>Mus</taxon>
+<taxon>Mus</taxon>
+</lineage>
+</organism>
+<reference key="1">
+<citation type="journal article" date="1986" name="J. Mol. Evol." volume="23" first="305" last="312">
+<title>Characterization of the two nonallelic genes encoding mouse preproinsulin.</title>
+<authorList>
+<person name="Wentworth B.M."/>
+<person name="Schaefer I.M."/>
+<person name="Villa-Komaroff L."/>
+<person name="Chirgwin J.M."/>
+</authorList>
+<dbReference type="PubMed" id="3104603"/>
+<dbReference type="DOI" id="10.1007/BF02100639"/>
+</citation>
+<scope>NUCLEOTIDE SEQUENCE [GENOMIC DNA]</scope>
+</reference>
+<reference key="2">
+<citation type="journal article" date="1990" name="J. Mol. Endocrinol." volume="5" first="61" last="67">
+<title>Molecular cloning and DNA sequence analysis of preproinsulin genes in the NON mouse, an animal model of human non-obese, non-insulin-dependent diabetes mellitus.</title>
+<authorList>
+<person name="Sawa T."/>
+<person name="Ohgaku S."/>
+<person name="Morioka H."/>
+<person name="Yano S."/>
+</authorList>
+<dbReference type="PubMed" id="2397023"/>
+<dbReference type="DOI" id="10.1677/jme.0.0050061"/>
+</citation>
+<scope>NUCLEOTIDE SEQUENCE [GENOMIC DNA]</scope>
+<source>
+<strain>NON</strain>
+</source>
+</reference>
+<reference key="3">
+<citation type="journal article" date="1972" name="Hoppe-Seyler's Z. Physiol. Chem." volume="353" first="451" last="458">
+<title>Amino acid sequence of the two insulins from mouse (Maus musculus).</title>
+<authorList>
+<person name="Buenzli H.F."/>
+<person name="Glatthaar B."/>
+<person name="Kunz P."/>
+<person name="Muelhaupt E."/>
+<person name="Humbel R.E."/>
+</authorList>
+<dbReference type="PubMed" id="5063718"/>
+</citation>
+<scope>PROTEIN SEQUENCE OF 25-54 AND 90-110</scope>
+</reference>
+<reference key="4">
+<citation type="journal article" date="2010" name="Cell" volume="143" first="1174" last="1189">
+<title>A tissue-specific atlas of mouse protein phosphorylation and expression.</title>
+<authorList>
+<person name="Huttlin E.L."/>
+<person name="Jedrychowski M.P."/>
+<person name="Elias J.E."/>
+<person name="Goswami T."/>
+<person name="Rad R."/>
+<person name="Beausoleil S.A."/>
+<person name="Villen J."/>
+<person name="Haas W."/>
+<person name="Sowa M.E."/>
+<person name="Gygi S.P."/>
+</authorList>
+<dbReference type="PubMed" id="21183079"/>
+<dbReference type="DOI" id="10.1016/j.cell.2010.12.001"/>
+</citation>
+<scope>IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]</scope>
+<source>
+<tissue>Pancreas</tissue>
+</source>
+</reference>
+<comment type="function">
+<text>Insulin decreases blood glucose concentration. It increases cell permeability to monosaccharides, amino acids and fatty acids. It accelerates glycolysis, the pentose phosphate cycle, and glycogen synthesis in liver.</text>
+</comment>
+<comment type="subunit">
+<text evidence="1">Heterodimer of a B chain and an A chain linked by two disulfide bonds.</text>
+</comment>
+<comment type="subcellular location">
+<subcellularLocation>
+<location>Secreted</location>
+</subcellularLocation>
+</comment>
+<comment type="similarity">
+<text evidence="4">Belongs to the insulin family.</text>
+</comment>
+<dbReference type="EMBL" id="X04724">
+<property type="protein sequence ID" value="CAA28433.1"/>
+<property type="molecule type" value="Genomic_DNA"/>
+</dbReference>
+<dbReference type="CCDS" id="CCDS22034.1"/>
+<dbReference type="PIR" id="A26342">
+<property type="entry name" value="INMS2"/>
+</dbReference>
+<dbReference type="RefSeq" id="NP_001172012.1">
+<property type="nucleotide sequence ID" value="NM_001185083.2"/>
+</dbReference>
+<dbReference type="RefSeq" id="NP_001172013.1">
+<property type="nucleotide sequence ID" value="NM_001185084.2"/>
+</dbReference>
+<dbReference type="RefSeq" id="NP_032413.1">
+<property type="nucleotide sequence ID" value="NM_008387.5"/>
+</dbReference>
+<dbReference type="UniGene" id="Mm.4946"/>
+<dbReference type="ProteinModelPortal" id="P01326"/>
+<dbReference type="SMR" id="P01326"/>
+<dbReference type="STRING" id="10090.ENSMUSP00000000220"/>
+<dbReference type="PhosphoSitePlus" id="P01326"/>
+<dbReference type="PaxDb" id="P01326"/>
+<dbReference type="PRIDE" id="P01326"/>
+<dbReference type="Ensembl" id="ENSMUST00000000220">
+<property type="protein sequence ID" value="ENSMUSP00000000220"/>
+<property type="gene ID" value="ENSMUSG00000000215"/>
+</dbReference>
+<dbReference type="Ensembl" id="ENSMUST00000105932">
+<property type="protein sequence ID" value="ENSMUSP00000101552"/>
+<property type="gene ID" value="ENSMUSG00000000215"/>
+</dbReference>
+<dbReference type="Ensembl" id="ENSMUST00000105933">
+<property type="protein sequence ID" value="ENSMUSP00000101553"/>
+<property type="gene ID" value="ENSMUSG00000000215"/>
+</dbReference>
+<dbReference type="Ensembl" id="ENSMUST00000105934">
+<property type="protein sequence ID" value="ENSMUSP00000101554"/>
+<property type="gene ID" value="ENSMUSG00000000215"/>
+</dbReference>
+<dbReference type="Ensembl" id="ENSMUST00000210288">
+<property type="protein sequence ID" value="ENSMUSP00000147425"/>
+<property type="gene ID" value="ENSMUSG00000000215"/>
+</dbReference>
+<dbReference type="GeneID" id="16334"/>
+<dbReference type="KEGG" id="mmu:16334"/>
+<dbReference type="UCSC" id="uc009kof.2">
+<property type="organism name" value="mouse"/>
+</dbReference>
+<dbReference type="CTD" id="16334"/>
+<dbReference type="MGI" id="MGI:96573">
+<property type="gene designation" value="Ins2"/>
+</dbReference>
+<dbReference type="eggNOG" id="ENOG410J0XC">
+<property type="taxonomic scope" value="Eukaryota"/>
+</dbReference>
+<dbReference type="eggNOG" id="ENOG4111VJB">
+<property type="taxonomic scope" value="LUCA"/>
+</dbReference>
+<dbReference type="GeneTree" id="ENSGT00390000015440"/>
+<dbReference type="HOGENOM" id="HOG000261669"/>
+<dbReference type="HOVERGEN" id="HBG006137"/>
+<dbReference type="InParanoid" id="P01326"/>
+<dbReference type="KO" id="K04526"/>
+<dbReference type="OMA" id="DPQVGQV"/>
+<dbReference type="OrthoDB" id="EOG091G0H56"/>
+<dbReference type="PhylomeDB" id="P01326"/>
+<dbReference type="TreeFam" id="TF332820"/>
+<dbReference type="Reactome" id="R-MMU-264876">
+<property type="pathway name" value="Insulin processing"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-422085">
+<property type="pathway name" value="Synthesis, secretion, and deacylation of Ghrelin"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-6807878">
+<property type="pathway name" value="COPI-mediated anterograde transport"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-6811558">
+<property type="pathway name" value="PI5P, PP2A and IER3 Regulate PI3K/AKT Signaling"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-74713">
+<property type="pathway name" value="IRS activation"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-74749">
+<property type="pathway name" value="Signal attenuation"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-74751">
+<property type="pathway name" value="Insulin receptor signalling cascade"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-74752">
+<property type="pathway name" value="Signaling by Insulin receptor"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-77387">
+<property type="pathway name" value="Insulin receptor recycling"/>
+</dbReference>
+<dbReference type="ChiTaRS" id="Ins2">
+<property type="organism name" value="mouse"/>
+</dbReference>
+<dbReference type="PMAP-CutDB" id="P01326"/>
+<dbReference type="PRO" id="PR:P01326"/>
+<dbReference type="Proteomes" id="UP000000589">
+<property type="component" value="Chromosome 7"/>
+</dbReference>
+<dbReference type="Bgee" id="ENSMUSG00000000215"/>
+<dbReference type="CleanEx" id="MM_INS2"/>
+<dbReference type="ExpressionAtlas" id="P01326">
+<property type="expression patterns" value="baseline and differential"/>
+</dbReference>
+<dbReference type="Genevisible" id="P01326">
+<property type="organism ID" value="MM"/>
+</dbReference>
+<dbReference type="GO" id="GO:0005737">
+<property type="term" value="C:cytoplasm"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0005829">
+<property type="term" value="C:cytosol"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0005576">
+<property type="term" value="C:extracellular region"/>
+<property type="evidence" value="ECO:0000304"/>
+<property type="project" value="Reactome"/>
+</dbReference>
+<dbReference type="GO" id="GO:0005615">
+<property type="term" value="C:extracellular space"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0005634">
+<property type="term" value="C:nucleus"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0030141">
+<property type="term" value="C:secretory granule"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0034774">
+<property type="term" value="C:secretory granule lumen"/>
+<property type="evidence" value="ECO:0000304"/>
+<property type="project" value="Reactome"/>
+</dbReference>
+<dbReference type="GO" id="GO:0005732">
+<property type="term" value="C:small nucleolar ribonucleoprotein complex"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0005179">
+<property type="term" value="F:hormone activity"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0042802">
+<property type="term" value="F:identical protein binding"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0005158">
+<property type="term" value="F:insulin receptor binding"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0005159">
+<property type="term" value="F:insulin-like growth factor receptor binding"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0002020">
+<property type="term" value="F:protease binding"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0044877">
+<property type="term" value="F:protein-containing complex binding"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0000187">
+<property type="term" value="P:activation of MAPK activity"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0032148">
+<property type="term" value="P:activation of protein kinase B activity"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0006953">
+<property type="term" value="P:acute-phase response"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0046631">
+<property type="term" value="P:alpha-beta T cell activation"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0060070">
+<property type="term" value="P:canonical Wnt signaling pathway"/>
+<property type="evidence" value="ECO:0000316"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0006983">
+<property type="term" value="P:ER overload response"/>
+<property type="evidence" value="ECO:0000315"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0055089">
+<property type="term" value="P:fatty acid homeostasis"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0007186">
+<property type="term" value="P:G-protein coupled receptor signaling pathway"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0042593">
+<property type="term" value="P:glucose homeostasis"/>
+<property type="evidence" value="ECO:0000315"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0006006">
+<property type="term" value="P:glucose metabolic process"/>
+<property type="evidence" value="ECO:0000315"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:1904659">
+<property type="term" value="P:glucose transmembrane transport"/>
+<property type="evidence" value="ECO:0000304"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0008286">
+<property type="term" value="P:insulin receptor signaling pathway"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0070059">
+<property type="term" value="P:intrinsic apoptotic signaling pathway in response to endoplasmic reticulum stress"/>
+<property type="evidence" value="ECO:0000315"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0016042">
+<property type="term" value="P:lipid catabolic process"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0000165">
+<property type="term" value="P:MAPK cascade"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0007520">
+<property type="term" value="P:myoblast fusion"/>
+<property type="evidence" value="ECO:0000316"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0014902">
+<property type="term" value="P:myotube differentiation"/>
+<property type="evidence" value="ECO:0000316"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0002674">
+<property type="term" value="P:negative regulation of acute inflammatory response"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0045922">
+<property type="term" value="P:negative regulation of fatty acid metabolic process"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:2000252">
+<property type="term" value="P:negative regulation of feeding behavior"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0045818">
+<property type="term" value="P:negative regulation of glycogen catabolic process"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0050995">
+<property type="term" value="P:negative regulation of lipid catabolic process"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0033861">
+<property type="term" value="P:negative regulation of NAD(P)H oxidase activity"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0042177">
+<property type="term" value="P:negative regulation of protein catabolic process"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0032460">
+<property type="term" value="P:negative regulation of protein oligomerization"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0050709">
+<property type="term" value="P:negative regulation of protein secretion"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0045861">
+<property type="term" value="P:negative regulation of proteolysis"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:1903427">
+<property type="term" value="P:negative regulation of reactive oxygen species biosynthetic process"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0060266">
+<property type="term" value="P:negative regulation of respiratory burst involved in inflammatory response"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0000122">
+<property type="term" value="P:negative regulation of transcription by RNA polymerase II"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:1990535">
+<property type="term" value="P:neuron projection maintenance"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0008284">
+<property type="term" value="P:positive regulation of cell proliferation"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0032270">
+<property type="term" value="P:positive regulation of cellular protein metabolic process"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0050715">
+<property type="term" value="P:positive regulation of cytokine secretion"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:1902952">
+<property type="term" value="P:positive regulation of dendritic spine maintenance"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0010628">
+<property type="term" value="P:positive regulation of gene expression"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0046326">
+<property type="term" value="P:positive regulation of glucose import"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:2001275">
+<property type="term" value="P:positive regulation of glucose import in response to insulin stimulus"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0045725">
+<property type="term" value="P:positive regulation of glycogen biosynthetic process"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0045821">
+<property type="term" value="P:positive regulation of glycolytic process"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0046628">
+<property type="term" value="P:positive regulation of insulin receptor signaling pathway"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0043410">
+<property type="term" value="P:positive regulation of MAPK cascade"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0045840">
+<property type="term" value="P:positive regulation of mitotic nuclear division"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0051092">
+<property type="term" value="P:positive regulation of NF-kappaB transcription factor activity"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0010750">
+<property type="term" value="P:positive regulation of nitric oxide mediated signal transduction"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0050731">
+<property type="term" value="P:positive regulation of peptidyl-tyrosine phosphorylation"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0043552">
+<property type="term" value="P:positive regulation of phosphatidylinositol 3-kinase activity"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0014068">
+<property type="term" value="P:positive regulation of phosphatidylinositol 3-kinase signaling"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0051897">
+<property type="term" value="P:positive regulation of protein kinase B signaling"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:1900182">
+<property type="term" value="P:positive regulation of protein localization to nucleus"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0060267">
+<property type="term" value="P:positive regulation of respiratory burst"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0006521">
+<property type="term" value="P:regulation of cellular amino acid metabolic process"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0010468">
+<property type="term" value="P:regulation of gene expression"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0042325">
+<property type="term" value="P:regulation of phosphorylation"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0043393">
+<property type="term" value="P:regulation of protein binding"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0032880">
+<property type="term" value="P:regulation of protein localization"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:1903076">
+<property type="term" value="P:regulation of protein localization to plasma membrane"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0050708">
+<property type="term" value="P:regulation of protein secretion"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0022898">
+<property type="term" value="P:regulation of transmembrane transporter activity"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0042060">
+<property type="term" value="P:wound healing"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="InterPro" id="IPR004825">
+<property type="entry name" value="Insulin"/>
+</dbReference>
+<dbReference type="InterPro" id="IPR016179">
+<property type="entry name" value="Insulin-like"/>
+</dbReference>
+<dbReference type="InterPro" id="IPR036438">
+<property type="entry name" value="Insulin-like_sf"/>
+</dbReference>
+<dbReference type="InterPro" id="IPR022353">
+<property type="entry name" value="Insulin_CS"/>
+</dbReference>
+<dbReference type="InterPro" id="IPR022352">
+<property type="entry name" value="Insulin_family"/>
+</dbReference>
+<dbReference type="Pfam" id="PF00049">
+<property type="entry name" value="Insulin"/>
+<property type="match status" value="1"/>
+</dbReference>
+<dbReference type="PRINTS" id="PR00277">
+<property type="entry name" value="INSULIN"/>
+</dbReference>
+<dbReference type="PRINTS" id="PR00276">
+<property type="entry name" value="INSULINFAMLY"/>
+</dbReference>
+<dbReference type="SMART" id="SM00078">
+<property type="entry name" value="IlGF"/>
+<property type="match status" value="1"/>
+</dbReference>
+<dbReference type="SUPFAM" id="SSF56994">
+<property type="entry name" value="SSF56994"/>
+<property type="match status" value="1"/>
+</dbReference>
+<dbReference type="PROSITE" id="PS00262">
+<property type="entry name" value="INSULIN"/>
+<property type="match status" value="1"/>
+</dbReference>
+<proteinExistence type="evidence at protein level"/>
+<keyword id="KW-0119">Carbohydrate metabolism</keyword>
+<keyword id="KW-0165">Cleavage on pair of basic residues</keyword>
+<keyword id="KW-0181">Complete proteome</keyword>
+<keyword id="KW-0903">Direct protein sequencing</keyword>
+<keyword id="KW-1015">Disulfide bond</keyword>
+<keyword id="KW-0313">Glucose metabolism</keyword>
+<keyword id="KW-0372">Hormone</keyword>
+<keyword id="KW-1185">Reference proteome</keyword>
+<keyword id="KW-0964">Secreted</keyword>
+<keyword id="KW-0732">Signal</keyword>
+<feature type="signal peptide" evidence="3">
+<location>
+<begin position="1"/>
+<end position="24"/>
+</location>
+</feature>
+<feature type="peptide" description="preproinsulin">
+<location>
+<begin position="1"/>
+<end position="110"/>
+</location>
+</feature>
+<feature type="peptide" description="proinsulin">
+<location>
+<begin position="25"/>
+<end position="110"/>
+</location>
+</feature>
+<feature type="peptide" description="des64,65 proinsulin.firsthalf">
+<location>
+<begin position="25"/>
+<end position="87"/>
+</location>
+</feature>
+<feature type="peptide" description="des31,32 proinsulin.secondhalf">
+<location>
+<begin position="57"/>
+<end position="110"/>
+</location>
+</feature>
+<feature type="peptide" description="immature A-chain - no CPE cleavage">
+<location>
+<begin position="88"/>
+<end position="110"/>
+</location>
+</feature>
+<feature type="peptide" description="immature C-chain - no CPE cleavage">
+<location>
+<begin position="55"/>
+<end position="87"/>
+</location>
+</feature>
+<feature type="peptide" description="Insulin-2 B chain" id="PRO_0000015845" evidence="2">
+<location>
+<begin position="25"/>
+<end position="54"/>
+</location>
+</feature>
+<feature type="propeptide" description="C peptide" id="PRO_0000015846">
+<location>
+<begin position="57"/>
+<end position="87"/>
+</location>
+</feature>
+<feature type="peptide" description="Insulin-2 A chain" id="PRO_0000015847" evidence="2">
+<location>
+<begin position="90"/>
+<end position="110"/>
+</location>
+</feature>
+<feature type="disulfide bond" description="Interchain (between B and A chains)" evidence="1">
+<location>
+<begin position="31"/>
+<end position="96"/>
+</location>
+</feature>
+<feature type="disulfide bond" description="Interchain (between B and A chains)" evidence="1">
+<location>
+<begin position="43"/>
+<end position="109"/>
+</location>
+</feature>
+<feature type="disulfide bond" evidence="1">
+<location>
+<begin position="95"/>
+<end position="100"/>
+</location>
+</feature>
+<evidence key="1" type="ECO:0000250">
+<source>
+<dbReference type="UniProtKB" id="P01308"/>
+</source>
+</evidence>
+<evidence key="2" type="ECO:0000269">
+<source>
+<dbReference type="PubMed" id="3104603"/>
+</source>
+</evidence>
+<evidence key="3" type="ECO:0000269">
+<source>
+<dbReference type="PubMed" id="5063718"/>
+</source>
+</evidence>
+<evidence key="4" type="ECO:0000305"/>
+<sequence length="110" mass="12364" checksum="3554C8803D24FDAD" modified="1987-08-13" version="1" precursor="true">
+MALWMRFLPLLALLFLWESHPTQAFVKQHLCGSHLVEALYLVCGERGFFYTPMSRREVED
+PQVAQLELGGGPGAGDLQTLALEVAQQKRGIVDQCCTSICSLYQLENYCN
+</sequence>
+</entry>
+<entry dataset="Swiss-Prot" created="1996-10-01" modified="2018-06-20" version="145">
+<accession>P55095</accession>
+<accession>Q3UFE9</accession>
+<name>GLUC_MOUSE</name>
+<protein>
+<recommendedName>
+<fullName>Glucagon</fullName>
+</recommendedName>
+<component>
+<recommendedName>
+<fullName>Glicentin</fullName>
+</recommendedName>
+</component>
+<component>
+<recommendedName>
+<fullName>Glicentin-related polypeptide</fullName>
+<shortName>GRPP</shortName>
+</recommendedName>
+</component>
+<component>
+<recommendedName>
+<fullName>Oxyntomodulin</fullName>
+<shortName>OXM</shortName>
+<shortName>OXY</shortName>
+</recommendedName>
+</component>
+<component>
+<recommendedName>
+<fullName>Glucagon</fullName>
+</recommendedName>
+</component>
+<component>
+<recommendedName>
+<fullName>Glucagon-like peptide 1</fullName>
+<shortName>GLP-1</shortName>
+</recommendedName>
+</component>
+<component>
+<recommendedName>
+<fullName>Glucagon-like peptide 1(7-37)</fullName>
+<shortName>GLP-1(7-37)</shortName>
+</recommendedName>
+</component>
+<component>
+<recommendedName>
+<fullName>Glucagon-like peptide 1(7-36)</fullName>
+<shortName>GLP-1(7-36)</shortName>
+</recommendedName>
+</component>
+<component>
+<recommendedName>
+<fullName>Glucagon-like peptide 2</fullName>
+<shortName>GLP-2</shortName>
+</recommendedName>
+</component>
+</protein>
+<gene>
+<name type="primary">Gcg</name>
+</gene>
+<organism>
+<name type="scientific">Mus musculus</name>
+<name type="common">Mouse</name>
+<dbReference type="NCBI Taxonomy" id="10090"/>
+<lineage>
+<taxon>Eukaryota</taxon>
+<taxon>Metazoa</taxon>
+<taxon>Chordata</taxon>
+<taxon>Craniata</taxon>
+<taxon>Vertebrata</taxon>
+<taxon>Euteleostomi</taxon>
+<taxon>Mammalia</taxon>
+<taxon>Eutheria</taxon>
+<taxon>Euarchontoglires</taxon>
+<taxon>Glires</taxon>
+<taxon>Rodentia</taxon>
+<taxon>Myomorpha</taxon>
+<taxon>Muroidea</taxon>
+<taxon>Muridae</taxon>
+<taxon>Murinae</taxon>
+<taxon>Mus</taxon>
+<taxon>Mus</taxon>
+</lineage>
+</organism>
+<reference key="1">
+<citation type="journal article" date="1995" name="J. Biol. Chem." volume="270" first="10136" last="10146">
+<title>Processing of mouse proglucagon by recombinant prohormone convertase 1 and immunopurified prohormone convertase 2 in vitro.</title>
+<authorList>
+<person name="Rothenberg M.E."/>
+<person name="Eilertson C.D."/>
+<person name="Klein K."/>
+<person name="Zhou Y."/>
+<person name="Linberg I."/>
+<person name="McDonald J.K."/>
+<person name="Mackin R.B."/>
+<person name="Noe B.D."/>
+</authorList>
+<dbReference type="PubMed" id="7730317"/>
+<dbReference type="DOI" id="10.1074/jbc.270.17.10136"/>
+</citation>
+<scope>NUCLEOTIDE SEQUENCE [MRNA]</scope>
+<source>
+<tissue>Pancreatic islet</tissue>
+</source>
+</reference>
+<reference key="2">
+<citation type="submission" date="2000-06" db="EMBL/GenBank/DDBJ databases">
+<title>Mouse glucagon full length cDNA.</title>
+<authorList>
+<person name="Shamsadin R."/>
+<person name="Knepel W."/>
+</authorList>
+</citation>
+<scope>NUCLEOTIDE SEQUENCE [MRNA]</scope>
+</reference>
+<reference key="3">
+<citation type="journal article" date="2005" name="Science" volume="309" first="1559" last="1563">
+<title>The transcriptional landscape of the mammalian genome.</title>
+<authorList>
+<person name="Carninci P."/>
+<person name="Kasukawa T."/>
+<person name="Katayama S."/>
+<person name="Gough J."/>
+<person name="Frith M.C."/>
+<person name="Maeda N."/>
+<person name="Oyama R."/>
+<person name="Ravasi T."/>
+<person name="Lenhard B."/>
+<person name="Wells C."/>
+<person name="Kodzius R."/>
+<person name="Shimokawa K."/>
+<person name="Bajic V.B."/>
+<person name="Brenner S.E."/>
+<person name="Batalov S."/>
+<person name="Forrest A.R."/>
+<person name="Zavolan M."/>
+<person name="Davis M.J."/>
+<person name="Wilming L.G."/>
+<person name="Aidinis V."/>
+<person name="Allen J.E."/>
+<person name="Ambesi-Impiombato A."/>
+<person name="Apweiler R."/>
+<person name="Aturaliya R.N."/>
+<person name="Bailey T.L."/>
+<person name="Bansal M."/>
+<person name="Baxter L."/>
+<person name="Beisel K.W."/>
+<person name="Bersano T."/>
+<person name="Bono H."/>
+<person name="Chalk A.M."/>
+<person name="Chiu K.P."/>
+<person name="Choudhary V."/>
+<person name="Christoffels A."/>
+<person name="Clutterbuck D.R."/>
+<person name="Crowe M.L."/>
+<person name="Dalla E."/>
+<person name="Dalrymple B.P."/>
+<person name="de Bono B."/>
+<person name="Della Gatta G."/>
+<person name="di Bernardo D."/>
+<person name="Down T."/>
+<person name="Engstrom P."/>
+<person name="Fagiolini M."/>
+<person name="Faulkner G."/>
+<person name="Fletcher C.F."/>
+<person name="Fukushima T."/>
+<person name="Furuno M."/>
+<person name="Futaki S."/>
+<person name="Gariboldi M."/>
+<person name="Georgii-Hemming P."/>
+<person name="Gingeras T.R."/>
+<person name="Gojobori T."/>
+<person name="Green R.E."/>
+<person name="Gustincich S."/>
+<person name="Harbers M."/>
+<person name="Hayashi Y."/>
+<person name="Hensch T.K."/>
+<person name="Hirokawa N."/>
+<person name="Hill D."/>
+<person name="Huminiecki L."/>
+<person name="Iacono M."/>
+<person name="Ikeo K."/>
+<person name="Iwama A."/>
+<person name="Ishikawa T."/>
+<person name="Jakt M."/>
+<person name="Kanapin A."/>
+<person name="Katoh M."/>
+<person name="Kawasawa Y."/>
+<person name="Kelso J."/>
+<person name="Kitamura H."/>
+<person name="Kitano H."/>
+<person name="Kollias G."/>
+<person name="Krishnan S.P."/>
+<person name="Kruger A."/>
+<person name="Kummerfeld S.K."/>
+<person name="Kurochkin I.V."/>
+<person name="Lareau L.F."/>
+<person name="Lazarevic D."/>
+<person name="Lipovich L."/>
+<person name="Liu J."/>
+<person name="Liuni S."/>
+<person name="McWilliam S."/>
+<person name="Madan Babu M."/>
+<person name="Madera M."/>
+<person name="Marchionni L."/>
+<person name="Matsuda H."/>
+<person name="Matsuzawa S."/>
+<person name="Miki H."/>
+<person name="Mignone F."/>
+<person name="Miyake S."/>
+<person name="Morris K."/>
+<person name="Mottagui-Tabar S."/>
+<person name="Mulder N."/>
+<person name="Nakano N."/>
+<person name="Nakauchi H."/>
+<person name="Ng P."/>
+<person name="Nilsson R."/>
+<person name="Nishiguchi S."/>
+<person name="Nishikawa S."/>
+<person name="Nori F."/>
+<person name="Ohara O."/>
+<person name="Okazaki Y."/>
+<person name="Orlando V."/>
+<person name="Pang K.C."/>
+<person name="Pavan W.J."/>
+<person name="Pavesi G."/>
+<person name="Pesole G."/>
+<person name="Petrovsky N."/>
+<person name="Piazza S."/>
+<person name="Reed J."/>
+<person name="Reid J.F."/>
+<person name="Ring B.Z."/>
+<person name="Ringwald M."/>
+<person name="Rost B."/>
+<person name="Ruan Y."/>
+<person name="Salzberg S.L."/>
+<person name="Sandelin A."/>
+<person name="Schneider C."/>
+<person name="Schoenbach C."/>
+<person name="Sekiguchi K."/>
+<person name="Semple C.A."/>
+<person name="Seno S."/>
+<person name="Sessa L."/>
+<person name="Sheng Y."/>
+<person name="Shibata Y."/>
+<person name="Shimada H."/>
+<person name="Shimada K."/>
+<person name="Silva D."/>
+<person name="Sinclair B."/>
+<person name="Sperling S."/>
+<person name="Stupka E."/>
+<person name="Sugiura K."/>
+<person name="Sultana R."/>
+<person name="Takenaka Y."/>
+<person name="Taki K."/>
+<person name="Tammoja K."/>
+<person name="Tan S.L."/>
+<person name="Tang S."/>
+<person name="Taylor M.S."/>
+<person name="Tegner J."/>
+<person name="Teichmann S.A."/>
+<person name="Ueda H.R."/>
+<person name="van Nimwegen E."/>
+<person name="Verardo R."/>
+<person name="Wei C.L."/>
+<person name="Yagi K."/>
+<person name="Yamanishi H."/>
+<person name="Zabarovsky E."/>
+<person name="Zhu S."/>
+<person name="Zimmer A."/>
+<person name="Hide W."/>
+<person name="Bult C."/>
+<person name="Grimmond S.M."/>
+<person name="Teasdale R.D."/>
+<person name="Liu E.T."/>
+<person name="Brusic V."/>
+<person name="Quackenbush J."/>
+<person name="Wahlestedt C."/>
+<person name="Mattick J.S."/>
+<person name="Hume D.A."/>
+<person name="Kai C."/>
+<person name="Sasaki D."/>
+<person name="Tomaru Y."/>
+<person name="Fukuda S."/>
+<person name="Kanamori-Katayama M."/>
+<person name="Suzuki M."/>
+<person name="Aoki J."/>
+<person name="Arakawa T."/>
+<person name="Iida J."/>
+<person name="Imamura K."/>
+<person name="Itoh M."/>
+<person name="Kato T."/>
+<person name="Kawaji H."/>
+<person name="Kawagashira N."/>
+<person name="Kawashima T."/>
+<person name="Kojima M."/>
+<person name="Kondo S."/>
+<person name="Konno H."/>
+<person name="Nakano K."/>
+<person name="Ninomiya N."/>
+<person name="Nishio T."/>
+<person name="Okada M."/>
+<person name="Plessy C."/>
+<person name="Shibata K."/>
+<person name="Shiraki T."/>
+<person name="Suzuki S."/>
+<person name="Tagami M."/>
+<person name="Waki K."/>
+<person name="Watahiki A."/>
+<person name="Okamura-Oho Y."/>
+<person name="Suzuki H."/>
+<person name="Kawai J."/>
+<person name="Hayashizaki Y."/>
+</authorList>
+<dbReference type="PubMed" id="16141072"/>
+<dbReference type="DOI" id="10.1126/science.1112014"/>
+</citation>
+<scope>NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]</scope>
+<source>
+<strain>C57BL/6J</strain>
+<tissue>Pancreas</tissue>
+</source>
+</reference>
+<reference key="4">
+<citation type="journal article" date="2004" name="Genome Res." volume="14" first="2121" last="2127">
+<title>The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).</title>
+<authorList>
+<consortium name="The MGC Project Team"/>
+</authorList>
+<dbReference type="PubMed" id="15489334"/>
+<dbReference type="DOI" id="10.1101/gr.2596504"/>
+</citation>
+<scope>NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]</scope>
+<source>
+<strain>FVB/N</strain>
+<tissue>Colon</tissue>
+</source>
+</reference>
+<reference key="5">
+<citation type="journal article" date="1991" name="Pancreas" volume="6" first="208" last="215">
+<title>GLP-1 and GLP-1(7-36) amide: influences on basal and stimulated insulin and glucagon secretion in the mouse.</title>
+<authorList>
+<person name="Fridolf T."/>
+<person name="Bottcher G."/>
+<person name="Sundler F."/>
+<person name="Ahren B."/>
+</authorList>
+<dbReference type="PubMed" id="1886889"/>
+</citation>
+<scope>FUNCTION OF GLP-1 AND GLP-1(7-36) AMIDE</scope>
+</reference>
+<reference key="6">
+<citation type="journal article" date="1997" name="J. Biol. Chem." volume="272" first="32810" last="32816">
+<title>Role of the prohormone convertase PC3 in the processing of proglucagon to glucagon-like peptide 1.</title>
+<authorList>
+<person name="Rouille Y."/>
+<person name="Kantengwa S."/>
+<person name="Irminger J.C."/>
+<person name="Halban P.A."/>
+</authorList>
+<dbReference type="PubMed" id="9407057"/>
+<dbReference type="DOI" id="10.1074/jbc.272.52.32810"/>
+</citation>
+<scope>PROTEOLYTIC PROCESSING BY PCSK1</scope>
+</reference>
+<reference key="7">
+<citation type="journal article" date="2001" name="J. Biol. Chem." volume="276" first="27197" last="27202">
+<title>Severe defect in proglucagon processing in islet A-cells of prohormone convertase 2 null mice.</title>
+<authorList>
+<person name="Furuta M."/>
+<person name="Zhou A."/>
+<person name="Webb G."/>
+<person name="Carroll R."/>
+<person name="Ravazzola M."/>
+<person name="Orci L."/>
+<person name="Steiner D.F."/>
+</authorList>
+<dbReference type="PubMed" id="11356850"/>
+<dbReference type="DOI" id="10.1074/jbc.M103362200"/>
+</citation>
+<scope>PROTEOLYTIC PROCESSING BY PCSK2</scope>
+</reference>
+<reference key="8">
+<citation type="journal article" date="2003" name="Mol. Endocrinol." volume="17" first="161" last="171">
+<title>Glucagon-like peptides: regulators of cell proliferation, differentiation, and apoptosis.</title>
+<authorList>
+<person name="Drucker D.J."/>
+</authorList>
+<dbReference type="PubMed" id="12554744"/>
+<dbReference type="DOI" id="10.1210/me.2002-0306"/>
+</citation>
+<scope>REVIEW</scope>
+</reference>
+<reference key="9">
+<citation type="journal article" date="2003" name="Am. J. Physiol." volume="284" first="E671" last="E678">
+<title>Glucagon and regulation of glucose metabolism.</title>
+<authorList>
+<person name="Jiang G."/>
+<person name="Zhang B.B."/>
+</authorList>
+<dbReference type="PubMed" id="12626323"/>
+<dbReference type="DOI" id="10.1152/ajpendo.00492.2002"/>
+</citation>
+<scope>REVIEW</scope>
+</reference>
+<reference key="10">
+<citation type="journal article" date="1999" name="Trends Endocrinol. Metab." volume="10" first="153" last="156">
+<title>Glucagon-like peptide 2.</title>
+<authorList>
+<person name="Drucker D.J."/>
+</authorList>
+<dbReference type="PubMed" id="10322410"/>
+<dbReference type="DOI" id="10.1016/S1043-2760(98)00136-2"/>
+</citation>
+<scope>REVIEW</scope>
+</reference>
+<reference key="11">
+<citation type="journal article" date="1999" name="Endocr. Rev." volume="20" first="876" last="913">
+<title>The glucagon-like peptides.</title>
+<authorList>
+<person name="Kieffer T.J."/>
+<person name="Habener J.F."/>
+</authorList>
+<dbReference type="PubMed" id="10605628"/>
+<dbReference type="DOI" id="10.1210/edrv.20.6.0385"/>
+</citation>
+<scope>REVIEW</scope>
+</reference>
+<reference key="12">
+<citation type="journal article" date="2010" name="Cell" volume="143" first="1174" last="1189">
+<title>A tissue-specific atlas of mouse protein phosphorylation and expression.</title>
+<authorList>
+<person name="Huttlin E.L."/>
+<person name="Jedrychowski M.P."/>
+<person name="Elias J.E."/>
+<person name="Goswami T."/>
+<person name="Rad R."/>
+<person name="Beausoleil S.A."/>
+<person name="Villen J."/>
+<person name="Haas W."/>
+<person name="Sowa M.E."/>
+<person name="Gygi S.P."/>
+</authorList>
+<dbReference type="PubMed" id="21183079"/>
+<dbReference type="DOI" id="10.1016/j.cell.2010.12.001"/>
+</citation>
+<scope>PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT SER-54; SER-105; SER-108; SER-150 AND SER-152</scope>
+<scope>IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]</scope>
+<source>
+<tissue>Pancreas</tissue>
+<tissue>Spleen</tissue>
+</source>
+</reference>
+<comment type="function">
+<text evidence="2">Glucagon plays a key role in glucose metabolism and homeostasis. Regulates blood glucose by increasing gluconeogenesis and decreasing glycolysis. A counterregulatory hormone of insulin, raises plasma glucose levels in response to insulin-induced hypoglycemia (By similarity).</text>
+</comment>
+<comment type="function">
+<text evidence="2">GLP-1 is a potent stimulator of glucose-dependent insulin release. Play important roles on gastric motility and the suppression of plasma glucagon levels. May be involved in the suppression of satiety and stimulation of glucose disposal in peripheral tissues, independent of the actions of insulin. Have growth-promoting activities on intestinal epithelium. May also regulate the hypothalamic pituitary axis (HPA) via effects on LH, TSH, CRH, oxytocin, and vasopressin secretion. Increases islet mass through stimulation of islet neogenesis and pancreatic beta cell proliferation (By similarity).</text>
+</comment>
+<comment type="function">
+<text evidence="2">GLP-2 stimulates intestinal growth and up-regulates villus height in the small intestine, concomitant with increased crypt cell proliferation and decreased enterocyte apoptosis. The gastrointestinal tract, from the stomach to the colon is the principal target for GLP-2 action. Plays a key role in nutrient homeostasis, enhancing nutrient assimilation through enhanced gastrointestinal function, as well as increasing nutrient disposal. Stimulates intestinal glucose transport and decreases mucosal permeability (By similarity).</text>
+</comment>
+<comment type="function">
+<text evidence="2">Oxyntomodulin significantly reduces food intake.</text>
+</comment>
+<comment type="function">
+<text evidence="3">Glicentin may modulate gastric acid secretion and gastro-pyloro-duodenal activity.</text>
+</comment>
+<comment type="subcellular location">
+<subcellularLocation>
+<location>Secreted</location>
+</subcellularLocation>
+</comment>
+<comment type="tissue specificity">
+<text>Glucagon is secreted in the A cells of the islets of Langerhans. GLP-1, GLP-2, oxyntomodulin and glicentin are secreted from enteroendocrine cells throughout the gastrointestinal tract. GLP-1 and GLP-2 are also secreted in selected neurons in the brain.</text>
+</comment>
+<comment type="induction">
+<text evidence="2">Glucagon release is stimulated by hypoglycemia and inhibited by hyperglycemia, insulin, and somatostatin. GLP-1 and GLP-2 are induced in response to nutrient ingestion (By similarity).</text>
+</comment>
+<comment type="PTM">
+<text evidence="2">Proglucagon is post-translationally processed in a tissue-specific manner in pancreatic A cells and intestinal L cells. In pancreatic A cells, the major bioactive hormone is glucagon cleaved by PCSK2/PC2. In the intestinal L cells PCSK1/PC1 liberates GLP-1, GLP-2, glicentin and oxyntomodulin. GLP-1 is further N-terminally truncated by post-translational processing in the intestinal L cells resulting in GLP-1(7-37) GLP-1-(7-36)amide. The C-terminal amidation is neither important for the metabolism of GLP-1 nor for its effects on the endocrine pancreas (By similarity).</text>
+</comment>
+<comment type="similarity">
+<text evidence="4">Belongs to the glucagon family.</text>
+</comment>
+<dbReference type="EMBL" id="Z46845">
+<property type="protein sequence ID" value="CAA86902.1"/>
+<property type="molecule type" value="mRNA"/>
+</dbReference>
+<dbReference type="EMBL" id="AF276754">
+<property type="protein sequence ID" value="AAK96898.1"/>
+<property type="molecule type" value="mRNA"/>
+</dbReference>
+<dbReference type="EMBL" id="AK007911">
+<property type="protein sequence ID" value="BAB25344.1"/>
+<property type="molecule type" value="mRNA"/>
+</dbReference>
+<dbReference type="EMBL" id="AK148544">
+<property type="protein sequence ID" value="BAE28612.1"/>
+<property type="molecule type" value="mRNA"/>
+</dbReference>
+<dbReference type="EMBL" id="BC012975">
+<property type="protein sequence ID" value="AAH12975.1"/>
+<property type="molecule type" value="mRNA"/>
+</dbReference>
+<dbReference type="CCDS" id="CCDS16066.1"/>
+<dbReference type="PIR" id="A57294">
+<property type="entry name" value="A57294"/>
+</dbReference>
+<dbReference type="RefSeq" id="NP_032126.1">
+<property type="nucleotide sequence ID" value="NM_008100.4"/>
+</dbReference>
+<dbReference type="UniGene" id="Mm.45494"/>
+<dbReference type="ProteinModelPortal" id="P55095"/>
+<dbReference type="SMR" id="P55095"/>
+<dbReference type="STRING" id="10090.ENSMUSP00000099794"/>
+<dbReference type="iPTMnet" id="P55095"/>
+<dbReference type="PhosphoSitePlus" id="P55095"/>
+<dbReference type="MaxQB" id="P55095"/>
+<dbReference type="PaxDb" id="P55095"/>
+<dbReference type="PRIDE" id="P55095"/>
+<dbReference type="Ensembl" id="ENSMUST00000102733">
+<property type="protein sequence ID" value="ENSMUSP00000099794"/>
+<property type="gene ID" value="ENSMUSG00000000394"/>
+</dbReference>
+<dbReference type="GeneID" id="14526"/>
+<dbReference type="KEGG" id="mmu:14526"/>
+<dbReference type="UCSC" id="uc008jvj.1">
+<property type="organism name" value="mouse"/>
+</dbReference>
+<dbReference type="CTD" id="2641"/>
+<dbReference type="MGI" id="MGI:95674">
+<property type="gene designation" value="Gcg"/>
+</dbReference>
+<dbReference type="eggNOG" id="ENOG410IKZ8">
+<property type="taxonomic scope" value="Eukaryota"/>
+</dbReference>
+<dbReference type="eggNOG" id="ENOG4111VKC">
+<property type="taxonomic scope" value="LUCA"/>
+</dbReference>
+<dbReference type="GeneTree" id="ENSGT00390000005372"/>
+<dbReference type="HOGENOM" id="HOG000231876"/>
+<dbReference type="HOVERGEN" id="HBG003010"/>
+<dbReference type="InParanoid" id="P55095"/>
+<dbReference type="KO" id="K05259"/>
+<dbReference type="OMA" id="TRDFINW"/>
+<dbReference type="OrthoDB" id="EOG091G0PJK"/>
+<dbReference type="PhylomeDB" id="P55095"/>
+<dbReference type="TreeFam" id="TF332333"/>
+<dbReference type="Reactome" id="R-MMU-163359">
+<property type="pathway name" value="Glucagon signaling in metabolic regulation"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-381676">
+<property type="pathway name" value="Glucagon-like Peptide-1 (GLP1) regulates insulin secretion"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-381771">
+<property type="pathway name" value="Synthesis, secretion, and inactivation of Glucagon-like Peptide-1 (GLP-1)"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-416476">
+<property type="pathway name" value="G alpha (q) signalling events"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-418555">
+<property type="pathway name" value="G alpha (s) signalling events"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-420092">
+<property type="pathway name" value="Glucagon-type ligand receptors"/>
+</dbReference>
+<dbReference type="Reactome" id="R-MMU-422085">
+<property type="pathway name" value="Synthesis, secretion, and deacylation of Ghrelin"/>
+</dbReference>
+<dbReference type="ChiTaRS" id="Gcg">
+<property type="organism name" value="mouse"/>
+</dbReference>
+<dbReference type="PMAP-CutDB" id="P55095"/>
+<dbReference type="PRO" id="PR:P55095"/>
+<dbReference type="Proteomes" id="UP000000589">
+<property type="component" value="Chromosome 2"/>
+</dbReference>
+<dbReference type="Bgee" id="ENSMUSG00000000394"/>
+<dbReference type="CleanEx" id="MM_GCG"/>
+<dbReference type="ExpressionAtlas" id="P55095">
+<property type="expression patterns" value="baseline and differential"/>
+</dbReference>
+<dbReference type="Genevisible" id="P55095">
+<property type="organism ID" value="MM"/>
+</dbReference>
+<dbReference type="GO" id="GO:0005737">
+<property type="term" value="C:cytoplasm"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="UniProtKB"/>
+</dbReference>
+<dbReference type="GO" id="GO:0005615">
+<property type="term" value="C:extracellular space"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0034774">
+<property type="term" value="C:secretory granule lumen"/>
+<property type="evidence" value="ECO:0000304"/>
+<property type="project" value="Reactome"/>
+</dbReference>
+<dbReference type="GO" id="GO:0031769">
+<property type="term" value="F:glucagon receptor binding"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0005179">
+<property type="term" value="F:hormone activity"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0042802">
+<property type="term" value="F:identical protein binding"/>
+<property type="evidence" value="ECO:0000501"/>
+<property type="project" value="Ensembl"/>
+</dbReference>
+<dbReference type="GO" id="GO:0007189">
+<property type="term" value="P:adenylate cyclase-activating G-protein coupled receptor signaling pathway"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="UniProtKB"/>
+</dbReference>
+<dbReference type="GO" id="GO:0007188">
+<property type="term" value="P:adenylate cyclase-modulating G-protein coupled receptor signaling pathway"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0043066">
+<property type="term" value="P:negative regulation of apoptotic process"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="UniProtKB"/>
+</dbReference>
+<dbReference type="GO" id="GO:0032099">
+<property type="term" value="P:negative regulation of appetite"/>
+<property type="evidence" value="ECO:0000266"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:1900118">
+<property type="term" value="P:negative regulation of execution phase of apoptosis"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:2001243">
+<property type="term" value="P:negative regulation of intrinsic apoptotic signaling pathway"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="UniProtKB"/>
+</dbReference>
+<dbReference type="GO" id="GO:0090280">
+<property type="term" value="P:positive regulation of calcium ion import"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="UniProtKB"/>
+</dbReference>
+<dbReference type="GO" id="GO:0070374">
+<property type="term" value="P:positive regulation of ERK1 and ERK2 cascade"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="UniProtKB"/>
+</dbReference>
+<dbReference type="GO" id="GO:0035948">
+<property type="term" value="P:positive regulation of gluconeogenesis by positive regulation of transcription from RNA polymerase II promoter"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0051571">
+<property type="term" value="P:positive regulation of histone H3-K4 methylation"/>
+<property type="evidence" value="ECO:0000316"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0035774">
+<property type="term" value="P:positive regulation of insulin secretion involved in cellular response to glucose stimulus"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="UniProtKB"/>
+</dbReference>
+<dbReference type="GO" id="GO:0033138">
+<property type="term" value="P:positive regulation of peptidyl-serine phosphorylation"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="UniProtKB"/>
+</dbReference>
+<dbReference type="GO" id="GO:0010800">
+<property type="term" value="P:positive regulation of peptidyl-threonine phosphorylation"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="UniProtKB"/>
+</dbReference>
+<dbReference type="GO" id="GO:0032092">
+<property type="term" value="P:positive regulation of protein binding"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="UniProtKB"/>
+</dbReference>
+<dbReference type="GO" id="GO:0045860">
+<property type="term" value="P:positive regulation of protein kinase activity"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="UniProtKB"/>
+</dbReference>
+<dbReference type="GO" id="GO:0010737">
+<property type="term" value="P:protein kinase A signaling"/>
+<property type="evidence" value="ECO:0000315"/>
+<property type="project" value="UniProtKB"/>
+</dbReference>
+<dbReference type="GO" id="GO:0050796">
+<property type="term" value="P:regulation of insulin secretion"/>
+<property type="evidence" value="ECO:0000314"/>
+<property type="project" value="MGI"/>
+</dbReference>
+<dbReference type="GO" id="GO:0042594">
+<property type="term" value="P:response to starvation"/>
+<property type="evidence" value="ECO:0000318"/>
+<property type="project" value="GO_Central"/>
+</dbReference>
+<dbReference type="InterPro" id="IPR015550">
+<property type="entry name" value="Glucagon"/>
+</dbReference>
+<dbReference type="InterPro" id="IPR000532">
+<property type="entry name" value="Glucagon_GIP_secretin_VIP"/>
+</dbReference>
+<dbReference type="PANTHER" id="PTHR11418">
+<property type="entry name" value="PTHR11418"/>
+<property type="match status" value="1"/>
+</dbReference>
+<dbReference type="Pfam" id="PF00123">
+<property type="entry name" value="Hormone_2"/>
+<property type="match status" value="3"/>
+</dbReference>
+<dbReference type="PRINTS" id="PR00275">
+<property type="entry name" value="GLUCAGON"/>
+</dbReference>
+<dbReference type="SMART" id="SM00070">
+<property type="entry name" value="GLUCA"/>
+<property type="match status" value="3"/>
+</dbReference>
+<dbReference type="PROSITE" id="PS00260">
+<property type="entry name" value="GLUCAGON"/>
+<property type="match status" value="4"/>
+</dbReference>
+<proteinExistence type="evidence at protein level"/>
+<keyword id="KW-0027">Amidation</keyword>
+<keyword id="KW-0165">Cleavage on pair of basic residues</keyword>
+<keyword id="KW-0181">Complete proteome</keyword>
+<keyword id="KW-0372">Hormone</keyword>
+<keyword id="KW-0597">Phosphoprotein</keyword>
+<keyword id="KW-1185">Reference proteome</keyword>
+<keyword id="KW-0964">Secreted</keyword>
+<keyword id="KW-0732">Signal</keyword>
+<feature type="signal peptide" evidence="2">
+<location>
+<begin position="1"/>
+<end position="20"/>
+</location>
+</feature>
+<feature type="peptide" description="Glicentin" id="PRO_0000011273" evidence="2">
+<location>
+<begin position="21"/>
+<end position="89"/>
+</location>
+</feature>
+<feature type="peptide" description="Glicentin-related polypeptide" id="PRO_0000011274" evidence="2">
+<location>
+<begin position="21"/>
+<end position="50"/>
+</location>
+</feature>
+<feature type="peptide" description="Oxyntomodulin" id="PRO_0000011275" evidence="2">
+<location>
+<begin position="53"/>
+<end position="89"/>
+</location>
+</feature>
+<feature type="peptide" description="Glucagon" id="PRO_0000011276" evidence="2">
+<location>
+<begin position="53"/>
+<end position="81"/>
+</location>
+</feature>
+<feature type="propeptide" id="PRO_0000011277" evidence="2">
+<location>
+<begin position="84"/>
+<end position="89"/>
+</location>
+</feature>
+<feature type="peptide" description="Glucagon-like peptide 1" id="PRO_0000011278" evidence="2">
+<location>
+<begin position="92"/>
+<end position="128"/>
+</location>
+</feature>
+<feature type="peptide" description="Glucagon-like peptide 1(7-37)" id="PRO_0000011279" evidence="2">
+<location>
+<begin position="98"/>
+<end position="128"/>
+</location>
+</feature>
+<feature type="peptide" description="Glucagon-like peptide 1(7-36)" id="PRO_0000011280" evidence="2">
+<location>
+<begin position="98"/>
+<end position="127"/>
+</location>
+</feature>
+<feature type="propeptide" id="PRO_0000011281" evidence="2">
+<location>
+<begin position="131"/>
+<end position="145"/>
+</location>
+</feature>
+<feature type="peptide" description="preproglucagon">
+<location>
+<begin position="1"/>
+<end position="180"/>
+</location>
+</feature>
+<feature type="peptide" description="glicentin(21-81)">
+<location>
+<begin position="21"/>
+<end position="81"/>
+</location>
+</feature>
+<feature type="peptide" description="immature glucagon- no CPE cleavage">
+<location>
+<begin position="51"/>
+<end position="81"/>
+</location>
+</feature>
+<feature type="peptide" description="immature oxyntomodulin">
+<location>
+<begin position="51"/>
+<end position="89"/>
+</location>
+</feature>
+<feature type="peptide" description="miniglucagon">
+<location>
+<begin position="71"/>
+<end position="81"/>
+</location>
+</feature>
+<feature type="peptide" description="immature miniglucagon- no CPE cleavage">
+<location>
+<begin position="69"/>
+<end position="81"/>
+</location>
+</feature>
+<feature type="peptide" description="major proglucagon fragment (contains GLP1, a peptide, and GLP2)">
+<location>
+<begin position="92"/>
+<end position="178"/>
+</location>
+</feature>
+<feature type="peptide" description="immature major proglucagon fragment (no CPE cleavage)">
+<location>
+<begin position="90"/>
+<end position="180"/>
+</location>
+</feature>
+<feature type="peptide" description="GLP1">
+<location>
+<begin position="92"/>
+<end position="127"/>
+</location>
+</feature>
+<feature type="peptide" description="immature GLP1 (no CPE cleavage)(90-127)">
+<location>
+<begin position="90"/> 
+<end position="127"/>
+</location>
+</feature>
+<feature type="peptide" description="immature GLP1 (no CPE cleavage)(90-128)">
+ <location>
+<begin position="90"/> 
+<end position="128"/> 
+ </location> 
+ </feature> 
+<feature type="peptide" description="GLP1(9-36)">
+<location>
+<begin position="100"/>
+<end position="127"/>
+</location>
+</feature>
+<feature type="peptide" description="GLP1(1-37)">
+<location>
+<begin position="100"/>
+<end position="128"/>
+</location>
+</feature>
+<feature type="peptide" description="GLP1(28-36)">
+<location>
+<begin position="119"/>
+<end position="127"/>
+</location>
+</feature>
+<feature type="peptide" description="GLP1(28-37)">
+<location> 
+<begin position="119"/>
+<end position="128"/>
+</location>
+</feature>
+<feature type="peptide" description="IP2">
+<location>
+<begin position="131"/>
+<end position="143"/>
+</location>
+</feature>
+<feature type="peptide" description="immature IP2">
+<location>
+<begin position="129"/>
+<end position="143"/>
+</location>
+</feature>
+<feature type="peptide" description="immature GLP2 (1-33) (no CPE cleavage)">
+<location>
+<begin position="144"/>
+<end position="178"/>
+</location>
+</feature>
+<feature type="peptide" description="GLP2 (3 -33)">
+<location>
+<begin position="148"/>
+<end position="178"/>
+</location>
+</feature>
+<feature type="peptide" description="immature IP1 (no CPE cleavage)">
+<location>
+<begin position="82"/>
+<end position="89"/>
+</location>
+</feature>
+<feature type="peptide" description="Glucagon-like peptide 2" id="PRO_0000011282" evidence="2">
+<location>
+<begin position="146"/>
+<end position="178"/>
+</location>
+</feature>
+<feature type="site" description="Cleavage; by PCSK2">
+<location>
+<begin position="52"/>
+<end position="53"/>
+</location>
+</feature>
+<feature type="site" description="Cleavage; by PCSK1 and PCSK2">
+<location>
+<begin position="83"/>
+<end position="84"/>
+</location>
+</feature>
+<feature type="site" description="Cleavage; by PCSK1">
+<location>
+<begin position="91"/>
+<end position="92"/>
+</location>
+</feature>
+<feature type="site" description="Cleavage; by PCSK1">
+<location>
+<begin position="97"/>
+<end position="98"/>
+</location>
+</feature>
+<feature type="site" description="Cleavage; by PCSK1">
+<location>
+<begin position="130"/>
+<end position="131"/>
+</location>
+</feature>
+<feature type="site" description="Cleavage; by PCSK1">
+<location>
+<begin position="145"/>
+<end position="146"/>
+</location>
+</feature>
+<feature type="modified residue" description="Phosphoserine" evidence="1">
+<location>
+<position position="54"/>
+</location>
+</feature>
+<feature type="modified residue" description="Phosphoserine" evidence="1">
+<location>
+<position position="105"/>
+</location>
+</feature>
+<feature type="modified residue" description="Phosphoserine" evidence="1">
+<location>
+<position position="108"/>
+</location>
+</feature>
+<feature type="modified residue" description="Arginine amide" evidence="2">
+<location>
+<position position="127"/>
+</location>
+</feature>
+<feature type="modified residue" description="Phosphoserine" evidence="1">
+<location>
+<position position="150"/>
+</location>
+</feature>
+<feature type="modified residue" description="Phosphoserine" evidence="1">
+<location>
+<position position="152"/>
+</location>
+</feature>
+<evidence key="1" type="ECO:0000244">
+<source>
+<dbReference type="PubMed" id="21183079"/>
+</source>
+</evidence>
+<evidence key="2" type="ECO:0000250"/>
+<evidence key="3" type="ECO:0000269">
+<source>
+<dbReference type="PubMed" id="1886889"/>
+</source>
+</evidence>
+<evidence key="4" type="ECO:0000305"/>
+<sequence length="180" mass="20906" checksum="595AA6DD9A589950" modified="1996-10-01" version="1" precursor="true">
+MKTIYFVAGLLIMLVQGSWQHALQDTEENPRSFPASQTEAHEDPDEMNEDKRHSQGTFTS
+DYSKYLDSRRAQDFVQWLMNTKRNRNNIAKRHDEFERHAEGTFTSDVSSYLEGQAAKEFI
+AWLVKGRGRRDFPEEVAIAEELGRRHADGSFSDEMSTILDNLATRDFINWLIQTKITDKK
+</sequence>
+</entry>
+<copyright>
+Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+Distributed under the Creative Commons Attribution (CC BY 4.0) License
+</copyright>
+</uniprot>

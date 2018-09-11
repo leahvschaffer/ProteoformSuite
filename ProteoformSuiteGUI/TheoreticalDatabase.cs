@@ -449,6 +449,8 @@ namespace ProteoformSuiteGUI
         private void ckbx_reduced_disulfide_CheckedChanged(object sender, EventArgs e)
         {
             Sweet.lollipop.reduced_disulfides = ckbx_reduced_disulfide.Checked;
+            ckbx_combineIdenticalSequences.Checked = Sweet.lollipop.reduced_disulfides;
+            Sweet.lollipop.combine_identical_sequences = Sweet.lollipop.reduced_disulfides;
         }
     }
 }

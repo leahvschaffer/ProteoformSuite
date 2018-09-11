@@ -231,6 +231,9 @@
     <Content Include="full_quant_test_table.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="ins1ins2glucagon_mouse.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="modified.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

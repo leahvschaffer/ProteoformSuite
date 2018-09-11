@@ -600,6 +600,10 @@ namespace ProteoformSuiteInternal
                             }
                         }
                         description += "_ Disulfide Bonds: " + num_bonds;
+                        if (num_bonds == 0)
+                        {
+                            continue;
+                        }
                         TheoreticalProteoform new_theoretical = new TheoreticalProteoform(
                             theoretical1.accession + "_DS" + i,
                             description,
