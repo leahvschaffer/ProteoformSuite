@@ -159,7 +159,7 @@ namespace ProteoformSuiteGUI
                         out UnlocalizedModification unlocalizedMod);
                     if (unlocalizedMod.DeepRTSymbol == null)
                     {
-                        MessageBox.Show(unlocalizedMod.id);
+                        MessageBox.Show(unlocalizedMod.id); 
                         return;
                     }
 
