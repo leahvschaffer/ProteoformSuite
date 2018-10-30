@@ -126,7 +126,7 @@ namespace ProteoformSuiteGUI
             get { return t.topdown_theoretical; }
         }
 
-        public double rt
+        public double RT
         {
             get { return t.predicted_RT; }
         }

@@ -450,5 +450,59 @@ namespace ProteoformSuiteGUI
         {
             Sweet.lollipop.most_abundant_mass = rb_mostAbundantMass.Checked;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<string> sequences = new List<string>() {"sequence\tRT"};
+
+            sequences.AddRange(Sweet.lollipop.target_proteoform_community.theoretical_proteoforms
+                .Select(t => t.sequence + "\t0"));
+            foreach (var decoyCommunity in Sweet.lollipop.decoy_proteoform_communities.Values)
+            {
+                sequences.AddRange(decoyCommunity.theoretical_proteoforms.Select(t => t.sequence + "\t0"));
+            }
+
+            sequences = sequences.Where(s => s.Length < 500).Distinct().ToList();
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Sequence RT file";
+            saveFileDialog.Filter = "Text Files (*.txt) | *.txt";
+            DialogResult sdr = saveFileDialog.ShowDialog();
+            if (sdr == DialogResult.OK)
+            {
+                File.WriteAllLines(saveFileDialog.FileName, sequences.ToArray());
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = cmb_loadTable.SelectedItem.ToString();
+            openFileDialog.Filter = openFileDialog.Filter = "Text Files (*.txt.pred) | *.txt.pred";
+
+
+            DialogResult dr = openFileDialog.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                Sweet.lollipop.theoretical_database.predicted_RTs.Clear();
+                string[] lines = File.ReadAllLines(openFileDialog.FileName);
+                //List<string> seqs = lines.Select(l => l.Split('\t')[0]).ToList();
+                //List<string> RTs = lines.Select(l => l.Split('\t')[1]).ToList();
+                //Random r = new Random();
+                //seqs = seqs.OrderBy(asdf => r.Next()).ToList();
+                //for (int i = 0; i < seqs.Count; i++ )
+                //var sequence = seqs[i];
+                //var RT = RTs[i];
+                foreach (var line in lines)
+                {
+                    var sequence = line.Split('\t')[0];
+                    var RT = line.Split('\t')[1];
+                    if (!Sweet.lollipop.theoretical_database.predicted_RTs.ContainsKey(sequence))
+                    {
+                        Sweet.lollipop.theoretical_database.predicted_RTs.Add(sequence, RT);
+                    }
+                }
+            }
+        }
     }
 }

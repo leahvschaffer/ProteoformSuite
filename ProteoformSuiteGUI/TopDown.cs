@@ -146,26 +146,26 @@ namespace ProteoformSuiteGUI
             List<string> topHitsForTransferTest = new List<string>() { "sequence\tRT\taccession\tPFR\tfilename\tscan\tscore" };
             List<string> allHits = new List<string>() { "sequence\tRT\taccession\tPFR\tfilename\tscan\tscore" };
             Random r = new Random();
-            List<TopDownHit> shuffledHits = Sweet.lollipop.top_down_hits.Where(h => h.score > 40 && h.ms2_retention_time > 35 && h.ms2_retention_time < 95).OrderBy(h => r.Next()).ToList();
-            int numForTrainSet = shuffledHits.Count > 5000 ? 4500 : (int)(shuffledHits.Count * 0.80);
-            int numForTestSet = shuffledHits.Count > 5000 ? 500 : (int)(shuffledHits.Count * 0.10);
+            List<TopDownHit> shuffledHits = Sweet.lollipop.top_down_hits.Where(h => h.score > 3 && h.ms2_retention_time > 35 && h.ms2_retention_time < 95).OrderBy(h => r.Next()).ToList();
+            int numForTrainSet = 900;
+            int numForTestSet = 100;
 
             foreach (var h in shuffledHits)
             {
                 string sequence = h.sequence;
-                foreach (var mod in h.ptm_list.OrderByDescending(m => m.position))
-                {
-                    Sweet.lollipop.theoretical_database.unlocalized_lookup.TryGetValue(mod.modification,
-                        out UnlocalizedModification unlocalizedMod);
-                    if (unlocalizedMod.DeepRTSymbol == null)
-                    {
-                        MessageBox.Show(unlocalizedMod.id); 
-                        return;
-                    }
+                //foreach (var mod in h.ptm_list.OrderByDescending(m => m.position))
+                //{
+                //    Sweet.lollipop.theoretical_database.unlocalized_lookup.TryGetValue(mod.modification,
+                //        out UnlocalizedModification unlocalizedMod);
+                //    if (unlocalizedMod.DeepRTSymbol == null)
+                //    {
+                //        MessageBox.Show(unlocalizedMod.id); 
+                //        return;
+                //    }
 
-                    int position_in_sequence = mod.position - h.begin;
-                    sequence = sequence.Insert(position_in_sequence, unlocalizedMod.DeepRTSymbol);
-                }
+                //    int position_in_sequence = mod.position - h.begin;
+                //    sequence = sequence.Insert(position_in_sequence, unlocalizedMod.DeepRTSymbol);
+                //}
 
                 if (topHitsForTransferTrain.Count >= numForTrainSet)
                 {

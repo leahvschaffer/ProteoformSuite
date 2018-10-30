@@ -81,6 +81,8 @@
             this.dgv_Database = new System.Windows.Forms.DataGridView();
             this.dgv_unlocalizedModifications = new System.Windows.Forms.DataGridView();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -310,6 +312,8 @@
             // splitContainer8.Panel2
             // 
             this.splitContainer8.Panel2.AutoScroll = true;
+            this.splitContainer8.Panel2.Controls.Add(this.button2);
+            this.splitContainer8.Panel2.Controls.Add(this.button1);
             this.splitContainer8.Panel2.Controls.Add(this.groupBox4);
             this.splitContainer8.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer8.Size = new System.Drawing.Size(495, 406);
@@ -824,6 +828,28 @@
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.button1.Location = new System.Drawing.Point(13, 353);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(189, 26);
+            this.button1.TabIndex = 57;
+            this.button1.Text = "Save list for train";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.button2.Location = new System.Drawing.Point(12, 379);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(189, 26);
+            this.button2.TabIndex = 58;
+            this.button2.Text = "Upload RT predicted";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // TheoreticalDatabase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -941,5 +967,7 @@
         private System.Windows.Forms.NumericUpDown nud_randomSeed;
         private System.Windows.Forms.CheckBox cb_useRandomSeed;
         private System.Windows.Forms.RadioButton rb_mostAbundantMass;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
