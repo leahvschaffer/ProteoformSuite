@@ -279,21 +279,25 @@ namespace ProteoformSuiteInternal
                     .Select(reference => new GoTerm(reference)).ToList();
                 int startPosAfterCleavage =
                     Convert.ToInt32(Sweet.lollipop.methionine_cleavage && p.BaseSequence.StartsWith("M"));
-                new_prots.Add(new ProteinWithGoTerms(
-                    p.BaseSequence.Substring(begin + startPosAfterCleavage - 1,
-                        end - (begin + startPosAfterCleavage) + 1),
-                    p.Accession + "_" + (begin + startPosAfterCleavage).ToString() + "full" + end.ToString(),
-                    p.GeneNames.ToList(),
-                    p.OneBasedPossibleLocalizedModifications.ToDictionary(kv => kv.Key - startPosAfterCleavage,
-                        kv => kv.Value),
-                    new List<ProteolysisProduct>
-                    {
-                        new ProteolysisProduct(begin + startPosAfterCleavage, end,
-                            Sweet.lollipop.methionine_cleavage && p.BaseSequence.StartsWith("M")
-                                ? "full-met-cleaved"
-                                : "full")
-                    },
-                    p.Name, p.FullName, p.IsDecoy, p.IsContaminant, p.DatabaseReferences.ToList(), goTerms.ToList()));
+                if (p.BaseSequence.Length >= Sweet.lollipop.min_peptide_length)
+                {
+                    new_prots.Add(new ProteinWithGoTerms(
+                        p.BaseSequence.Substring(begin + startPosAfterCleavage - 1,
+                            end - (begin + startPosAfterCleavage) + 1),
+                        p.Accession + "_" + (begin + startPosAfterCleavage).ToString() + "full" + end.ToString(),
+                        p.GeneNames.ToList(),
+                        p.OneBasedPossibleLocalizedModifications.ToDictionary(kv => kv.Key - startPosAfterCleavage,
+                            kv => kv.Value),
+                        new List<ProteolysisProduct>
+                        {
+                            new ProteolysisProduct(begin + startPosAfterCleavage, end,
+                                Sweet.lollipop.methionine_cleavage && p.BaseSequence.StartsWith("M")
+                                    ? "full-met-cleaved"
+                                    : "full")
+                        },
+                        p.Name, p.FullName, p.IsDecoy, p.IsContaminant, p.DatabaseReferences.ToList(),
+                        goTerms.ToList()));
+                }
 
                 //Add fragments
                 List<ProteolysisProduct> products = p.ProteolysisProducts.ToList();
@@ -426,30 +430,27 @@ namespace ProteoformSuiteInternal
                 //Enumerate the ptm combinations with _P# to distinguish from the counts in ProteinSequenceGroups (_#G) and TheoreticalPfGps (_#T)
                 foreach (PtmSet ptm_set in unique_ptm_groups)
                 {
-                    string rt = null;
-                    if (predicted_RTs.Count == 0 || predicted_RTs.TryGetValue(seq, out rt))
-                    {
+                    predicted_RTs.TryGetValue(seq, out string rt);
+                    TheoreticalProteoform t =
+                        new TheoreticalProteoform(
+                            accession + "_P" + ptm_set_counter.ToString(),
+                            prot.FullDescription + "_P" + ptm_set_counter.ToString() +
+                            (decoy_number < 0 ? "" : "_DECOY_" + decoy_number.ToString()),
+                            seq,
+                            (prot as ProteinSequenceGroup != null
+                                ? (prot as ProteinSequenceGroup).proteinWithGoTermList.ToArray()
+                                : new ProteinWithGoTerms[] { prot }),
+                            unmodified_mass,
+                            lysine_count,
+                            ptm_set,
+                            decoy_number < 0,
+                            check_contaminants,
+                            theoretical_proteins);
+                    t.topdown_theoretical = prot.topdown_protein;
+                    if (rt != null) t.predicted_RT = Convert.ToDouble(rt);
+                    new_theoreticals.Add(t);
+                    ptm_set_counter++;
 
-                        TheoreticalProteoform t =
-                            new TheoreticalProteoform(
-                                accession + "_P" + ptm_set_counter.ToString(),
-                                prot.FullDescription + "_P" + ptm_set_counter.ToString() +
-                                (decoy_number < 0 ? "" : "_DECOY_" + decoy_number.ToString()),
-                                seq,
-                                (prot as ProteinSequenceGroup != null
-                                    ? (prot as ProteinSequenceGroup).proteinWithGoTermList.ToArray()
-                                    : new ProteinWithGoTerms[] {prot}),
-                                unmodified_mass,
-                                lysine_count,
-                                ptm_set,
-                                decoy_number < 0,
-                                check_contaminants,
-                                theoretical_proteins);
-                        t.topdown_theoretical = prot.topdown_protein;
-                        if (rt != null) t.predicted_RT = Convert.ToDouble(rt);
-                        new_theoreticals.Add(t);
-                        ptm_set_counter++;
-                    }
                 }
             }
 
@@ -686,57 +687,31 @@ namespace ProteoformSuiteInternal
         private void process_decoys(TheoreticalProteoform[] entries)
         {
             Sweet.lollipop.decoy_proteoform_communities.Clear();
-            //Parallel.For(0, Sweet.lollipop.decoy_databases, decoyNumber =>
             for (int decoyNumber = 0; decoyNumber < Sweet.lollipop.decoy_databases; decoyNumber++)
             {
                 List<TheoreticalProteoform> decoy_proteoforms = new List<TheoreticalProteoform>();
-                string
-                    giantProtein =
-                        GetOneGiantProtein(expanded_proteins,
-                            Sweet.lollipop
-                                .methionine_cleavage); //Concatenate a giant protein out of all protein read from the UniProt-XML, and construct target and decoy proteoform databases
-                List<TheoreticalProteoform> topdown_theoreticals = entries.Where(t => t.topdown_theoretical).ToList();
-                foreach (var topdownTheoretical in topdown_theoreticals)
+                StringBuilder sb = new StringBuilder(5000000); // this set-aside is autoincremented to larger values when necessary.
+                foreach (TheoreticalProteoform proteoform in entries) // Take on harder problems first to use parallelization more effectively
                 {
-                    giantProtein += topdownTheoretical.sequence;
+                    sb.Append(proteoform.sequence);
                 }
-
-                ProteinWithGoTerms[] shuffled_proteins = new ProteinWithGoTerms[expanded_proteins.Length];
-                Array.Copy(expanded_proteins, shuffled_proteins, expanded_proteins.Length);
-                Random decoy_rng = Sweet.lollipop.useRandomSeed_decoys
-                    ? new Random(decoyNumber + Sweet.lollipop.randomSeed_decoys)
-                    : new Random(); // each decoy database needs to have a new random number generator
-                decoy_rng.Shuffle(shuffled_proteins); //randomize order of protein array
+                string giantProtein = sb.ToString();
+                Random decoy_rng = Sweet.lollipop.useRandomSeed_decoys ? new Random(decoyNumber + Sweet.lollipop.randomSeed_decoys) : new Random(); // each decoy database needs to have a new random number generator
+                var shuffled_proteoforms = entries.OrderBy(item => decoy_rng.Next()).ToList();
                 int prevLength = 0;
-                foreach (var p in shuffled_proteins)
-                {
-                    if (!p.topdown_protein)
-                    {
-                        string hunk = giantProtein.Substring(prevLength, p.BaseSequence.Length);
-                        prevLength += p.BaseSequence.Length;
-                        EnterTheoreticalProteformFamily(hunk, p, p.OneBasedPossibleLocalizedModifications,
-                            p.Accession + "_DECOY_" + decoyNumber, decoy_proteoforms, decoyNumber,
-                            variableModifications);
-                    }
-                }
-
-                //add decoys from top-downs
-                var shuffled_proteoforms = topdown_theoreticals.OrderBy(item => decoy_rng.Next()).ToList();
                 foreach (var p in shuffled_proteoforms)
                 {
                     string hunk = giantProtein.Substring(prevLength, p.sequence.Length);
-                    string rt = null;
-                    if (predicted_RTs.Count == 0 || predicted_RTs.TryGetValue(hunk, out rt))
-                    {
-                        prevLength += p.sequence.Length;
-                        var unmodified_mass =
-                            TheoreticalProteoform.CalculateProteoformMass(hunk, new List<Ptm>(), aaIsotopeMassList);
+                    prevLength += p.sequence.Length;
+                    predicted_RTs.TryGetValue(hunk, out string rt);
+
                         TheoreticalProteoform t = new TheoreticalProteoform(p.accession + "_DECOY_" + decoyNumber,
-                            p.description, hunk, p.ExpandedProteinList, unmodified_mass, hunk.Count(s => s == 'K'),
+                            p.description, hunk, p.ExpandedProteinList,
+                            TheoreticalProteoform.CalculateProteoformMass(hunk, p.ptm_set.ptm_combination,
+                                aaIsotopeMassList), hunk.Count(s => s == 'K'),
                             p.ptm_set, false, p.contaminant, theoretical_proteins);
-                        if (rt != null) t.predicted_RT = Convert.ToDouble(rt);
-                        decoy_proteoforms.Add(t);
-                    }
+                    if (rt != null) t.predicted_RT = Convert.ToDouble(rt);
+                    decoy_proteoforms.Add(t);
                 }
 
                 lock (Sweet.lollipop.decoy_proteoform_communities)
@@ -756,37 +731,7 @@ namespace ProteoformSuiteInternal
                         .community_number = decoyNumber;
                 }
             }
-        } //);
-
-        private string GetOneGiantProtein(IEnumerable<Protein> proteins, bool methionine_cleavage)
-        {
-            StringBuilder
-                giantProtein =
-                    new StringBuilder(
-                        5000000); // this set-aside is autoincremented to larger values when necessary.
-            foreach (Protein protein in proteins)
-            {
-                string sequence = protein.BaseSequence;
-                bool isMetCleaved = methionine_cleavage && (sequence.Substring(0, 1) == "M");
-                int startPosAfterMetCleavage = Convert.ToInt32(isMetCleaved);
-                switch (protein.ProteolysisProducts.Select(p => p.Type).FirstOrDefault())
-                {
-                    case "chain":
-                    case "signal peptide":
-                    case "propeptide":
-                    case "peptide":
-                        giantProtein.Append(".");
-                        break;
-                    default:
-                        giantProtein.Append("-");
-                        break;
-                }
-
-                giantProtein.Append(sequence.Substring(startPosAfterMetCleavage));
-            }
-
-            return giantProtein.ToString();
-        }
+        } 
 
         #endregion Private Methods
     }
