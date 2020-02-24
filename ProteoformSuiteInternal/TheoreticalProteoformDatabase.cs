@@ -455,7 +455,7 @@ namespace ProteoformSuiteInternal
                     }
                 }
             });
-            Sweet.lollipop.topdown_proteoforms = Sweet.lollipop.topdown_proteoforms.Except(Sweet.lollipop.topdown_proteoforms_no_theoretical).ToList();
+            //Sweet.lollipop.topdown_proteoforms = Sweet.lollipop.topdown_proteoforms.Except(Sweet.lollipop.topdown_proteoforms_no_theoretical).ToList();
             expanded_proteins = expanded_proteins.Concat(new_proteins).ToArray();
         }
 

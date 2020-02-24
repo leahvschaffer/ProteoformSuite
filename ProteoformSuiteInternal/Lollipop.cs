@@ -527,7 +527,7 @@ namespace ProteoformSuiteInternal
                     to_remove.Add(proteoform);
                 }
             }
-            topdown_proteoforms = topdown_proteoforms.Except(to_remove).ToList();
+       //     topdown_proteoforms = topdown_proteoforms.Except(to_remove).ToList();
 
 
             //add bottomup peptides

@@ -333,7 +333,7 @@ namespace ProteoformSuiteInternal
                 double qValue = Convert.ToDouble(cellStrings[index_q_value].Split('|')[0]);
                 List<string> decoy = cellStrings[index_decoy].Split('|').ToList();
                 //don't read in any decoys for now
-                if (qValue < 0.01 && decoy.All(d => d == "N"))
+                if (qValue < 0.01) //&& decoy.All(d => d == "N"))
                 {
                     List<int> begin = new List<int>();
                     List<int> end = new List<int>();

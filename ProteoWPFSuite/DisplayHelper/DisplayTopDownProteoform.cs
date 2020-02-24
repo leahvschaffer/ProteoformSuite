@@ -74,13 +74,13 @@ namespace ProteoWPFSuite
             }
         }
 
-        public string gene_name
-        {
-            get
-            {
-                return t.topdown_geneName.primary + (t.ambiguous_topdown_hits.Count > 0 ? " | " + String.Join(" | ", t.ambiguous_topdown_hits.Select(h => h.gene_name.primary)) : "");
-            }
-        }
+        //public string gene_name
+        //{
+        //    get
+        //    {
+        //        return t.topdown_geneName.primary + (t.ambiguous_topdown_hits.Count > 0 ? " | " + String.Join(" | ", t.ambiguous_topdown_hits.Select(h => h.gene_name.primary)) : "");
+        //    }
+        //}
 
         //public string GeneID
         //{
@@ -316,21 +316,21 @@ namespace ProteoWPFSuite
             }
         }
 
-        //public string hits_index
-        //{
-        //    get { return String.Join(",", t.topdown_hits.Select(h => "H" + h.hit_ID + "hit")); }
-        //}
+        public string hits_index
+        {
+            get { return String.Join(",", t.topdown_hits.Select(h => "H" + h.hit_ID + "hit")); }
+        }
 
-        //public double percent_target
-        //{
-        //    get
-        //    {
-        //        int total_hits = 1 + t.ambiguous_topdown_hits.Count;
-        //        int total_targets = (t.topdown_hits.Any(h => h.target) ? 1 : 0) + t.ambiguous_topdown_hits.Count(h => h.target);
-        //        double ratio = (double)total_targets / (double)total_hits;
-        //        return ratio;
-        //    }
-        //}
+        public double percent_target
+        {
+            get
+            {
+                int total_hits = 1 + t.ambiguous_topdown_hits.Count;
+                int total_targets = (t.topdown_hits.Any(h => h.target) ? 1 : 0) + t.ambiguous_topdown_hits.Count(h => h.target);
+                double ratio = (double)total_targets / (double)total_hits;
+                return ratio;
+            }
+        }
 
 
 
@@ -381,7 +381,7 @@ namespace ProteoWPFSuite
             if (name == nameof(bottom_up_evidence_for_all_PTMs)) return "Bottom-Up Evidence for All PTMs";
             if (name == nameof(seq_ptm_specific)) return "Sequence Specific";
             if (name == nameof(all_peptides_from_protein)) return "All Peptides From Protein";
-            if (name == nameof(gene_name)) return "Gene Name";
+           // if (name == nameof(gene_name)) return "Gene Name";
             if (name == nameof(grouped_accessions)) return "Accessions";
             if (name == nameof(begin_and_end)) return "Begin and End";
             if (name == nameof(uniprot_mods)) return "UniProt-Annotated Modifications";
