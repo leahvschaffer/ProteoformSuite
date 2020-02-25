@@ -259,7 +259,7 @@ namespace ProteoformSuiteInternal
                             Int32.TryParse(cellStrings[17], out i) ? i : 0,
                             Double.TryParse(cellStrings[18], out d) ? d : 0, cellStrings[14].Split('.')[0],
                             Double.TryParse(cellStrings[20], out d) ? d : 0,
-                            Double.TryParse(cellStrings[22], out d) ? d : 0, new List<MatchedFragmentIon>(), "N");
+                            Double.TryParse(cellStrings[22], out d) ? d : 0, new List<MatchedFragmentIon>(), "N", 0);
 
                         if (td_hit.begin > 0 && td_hit.end > 0 && td_hit.theoretical_mass > 0 &&
                             td_hit.reported_mass > 0 && td_hit.score > 0
@@ -303,7 +303,7 @@ namespace ProteoformSuiteInternal
             int index_mods = Array.IndexOf(header, "Mods");
             int index_matched_ion_mz_ratios = Array.IndexOf(header, "Matched Ion Mass-To-Charge Ratios");
             int index_score = Array.IndexOf(header, "Score");
-
+            int pep = Array.IndexOf(header, "PEP");
             //creates dictionary to find mods
             Dictionary<string, Modification> mods = new Dictionary<string, Modification>();
             foreach (var mod in Sweet.lollipop.theoretical_database.all_mods_with_mass)
@@ -460,7 +460,8 @@ namespace ProteoformSuiteInternal
                                 qValue,
                                 Convert.ToDouble(cellStrings[index_score]),
                                 ReadFragmentIonsFromString(cellStrings[index_matched_ion_mz_ratios], base_sequences.Count > hit ? base_sequences[hit] : base_sequences[0]),
-                                decoy.Count > hit? decoy[hit] : decoy[0]);
+                                decoy.Count > hit? decoy[hit] : decoy[0],
+                                Convert.ToDouble(cellStrings[pep]));
                             if (td_hit.begin > 0 && td_hit.end > 0 && td_hit.theoretical_mass > 0 &&
                                  td_hit.reported_mass > 0 && td_hit.score > 0
                                 && td_hit.ms2ScanNumber > 0 && td_hit.ms2_retention_time > 0)

@@ -332,6 +332,11 @@ namespace ProteoWPFSuite
             }
         }
 
+        public double pep
+        {
+            get { return t.topdown_hits.Min(h => h.pep); }
+        }
+
 
 
         #endregion Public Properties
