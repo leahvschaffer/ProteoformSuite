@@ -266,29 +266,64 @@ namespace ProteoformSuiteInternal
 
             if (addBottomUpPeptideNodes)
             {
-                foreach (var experimental in families.SelectMany(f => f.experimental_proteoforms.Where(e => e.topdown_id || e.linked_proteoform_references != null)))
+                //foreach (var experimental in families.SelectMany(f => f.experimental_proteoforms.Where(e => e.topdown_id || e.linked_proteoform_references != null)))
+                //{
+                //    var bottom_up_PSMs = experimental.topdown_id ? (experimental as TopDownProteoform).topdown_bottom_up_PSMs : experimental.bottom_up_PSMs;
+                //    List<string> names = new List<string>();
+                //    foreach (var bu in bottom_up_PSMs)
+                //    {
+                //        var ptms_bio_interest = bu.ptm_list.Where(p => p.modification.ModificationType != "Common Fixed" && UnlocalizedModification.bio_interest(p.modification));
+                //        if (ptms_bio_interest.Count() == 0) continue;
+                //        string name = bu.accession + "_" + bu.begin + "to" + bu.end + "_" + string.Join("; ", ptms_bio_interest.Select(p => UnlocalizedModification.LookUpId(p.modification) + "@" + p.position));
+                //        if (names.Contains(name)) continue;
+                //        names.Add(name);
+                //        edge_table.Rows.Add
+                //        (
+                //            get_proteoform_shared_name(experimental, node_label, double_rounding, true),
+                //            experimental.lysine_count,
+                //            name,
+                //            "BU",
+                //            ""
+                //        );
+                //    }
+                //}
+
+                foreach (var family in families)
                 {
-                    var bottom_up_PSMs = experimental.topdown_id ? (experimental as TopDownProteoform).topdown_bottom_up_PSMs : experimental.bottom_up_PSMs;
-                    List<string> names = new List<string>();
-                    foreach (var bu in bottom_up_PSMs)
+                    var accessions = family.proteoforms.Select(p => p.accession.Split('_')[0]).Distinct();
+                    foreach(var accession in accessions)
                     {
-                        var ptms_bio_interest = bu.ptm_list.Where(p => p.modification.ModificationType != "Common Fixed" && UnlocalizedModification.bio_interest(p.modification));
-                        if (ptms_bio_interest.Count() == 0) continue;
-                        string name = bu.accession + "_" + bu.begin + "to" + bu.end + "_" + string.Join("; ", ptms_bio_interest.Select(p => UnlocalizedModification.LookUpId(p.modification) + "@" + p.position));
-                        if (names.Contains(name)) continue;
-                        names.Add(name);
-                        edge_table.Rows.Add
-                        (
-                            get_proteoform_shared_name(experimental, node_label, double_rounding, true),
-                            experimental.lysine_count,
-                            name,
-                            "BU",
-                            ""
-                        );
+                        Sweet.lollipop.theoretical_database.bottom_up_psm_by_accession.TryGetValue(accession, out var bu_with_accession);
+                        if (bu_with_accession == null) continue;
+                        var bu_with_intensity = bu_with_accession.Where(b => b.intensity > 0);
+                        var edges = bu_with_intensity.Count() > 3 ? bu_with_intensity.OrderByDescending(b => b.intensity).Take(3) : bu_with_intensity;
+
+                        foreach (var experimental in family.experimental_proteoforms.Where(e => e.topdown_id || e.linked_proteoform_references != null))
+                        {
+                            var bottom_up_PSMs = experimental.topdown_id ? (experimental as TopDownProteoform).topdown_bottom_up_PSMs : experimental.bottom_up_PSMs;
+                            foreach (var bu in bottom_up_PSMs)
+                            {
+                                if (edges.Contains(bu))
+                                {
+                                    var ptms_bio_interest = bu.ptm_list.Where(p => p.modification.ModificationType != "Common Fixed"); //&& UnlocalizedModification.bio_interest(p.modification));
+                                   // if (ptms_bio_interest.Count() == 0) continue;
+                                    string name = bu.accession + "_" + bu.begin + "to" + bu.end + "_" + (ptms_bio_interest.Count() == 0 ? "Unmodified" : string.Join("; ", ptms_bio_interest.Select(p => UnlocalizedModification.LookUpId(p.modification) + "@" + p.position)));
+                                    edge_table.Rows.Add
+                                    (
+                                        get_proteoform_shared_name(experimental, node_label, double_rounding, true),
+                                        experimental.lysine_count,
+                                        name,
+                                        "BU",
+                                        ""
+                                    );
+                                }
+                            }
+                        }
                     }
+                    
                 }
             }
-        
+
 
             if (gene_centric_families)
             {
@@ -445,9 +480,9 @@ namespace ProteoformSuiteInternal
                         foreach (var bu in bottom_up_PSMs)
                         {
 
-                            var ptms_bio_interest = bu.ptm_list.Where(m => m.modification.ModificationType != "Common Fixed" && UnlocalizedModification.bio_interest(m.modification));
-                            if (ptms_bio_interest.Count() == 0) continue;
-                            string name = bu.accession + "_" + bu.begin + "to" + bu.end + "_" + string.Join("; ", ptms_bio_interest.Select(m => UnlocalizedModification.LookUpId(m.modification) + "@" + m.position));
+                            var ptms_bio_interest = bu.ptm_list.Where(m => m.modification.ModificationType != "Common Fixed"); //&& UnlocalizedModification.bio_interest(m.modification));
+                           // if (ptms_bio_interest.Count() == 0) continue;
+                            string name = bu.accession + "_" + bu.begin + "to" + bu.end + "_" + (ptms_bio_interest.Count() == 0 ? "Unmodified" : string.Join("; ", ptms_bio_interest.Select(m => UnlocalizedModification.LookUpId(m.modification) + "@" + m.position)));
                             if (names.Contains(name)) continue;
                             names.Add(name);
                             node_table.Rows.Add(name, bu_label, total_intensity, tooltip, layout_rank);

@@ -72,6 +72,8 @@ namespace ProteoformSuiteInternal
         public List<SpectrumMatch> bottom_up_PSMs = new List<SpectrumMatch>();
         public bool target { get; set; }
 
+        public double intensity { get; set; }
+
         //for calibration
         public string biological_replicate { get; set; } = "";
         public string technical_replicate { get; set; } = "";
@@ -82,7 +84,7 @@ namespace ProteoformSuiteInternal
         public int charge { get; set; }
         public MsDataScan ms1_scan { get; set; }
 
-        public SpectrumMatch(int hit_ID, Dictionary<char, double> aaIsotopeMassList, InputFile file, TopDownResultType tdResultType, string accession, string full_sequence, string uniprot_id, string name, string sequence, int begin, int end, List<Ptm> modifications, double reported_mass, double theoretical_mass, int scan, double retention_time, string filename, double qValue, double score, List<MatchedFragmentIon> matched_fragment_ions, string target)
+        public SpectrumMatch(int hit_ID, Dictionary<char, double> aaIsotopeMassList, InputFile file, TopDownResultType tdResultType, string accession, string full_sequence, string uniprot_id, string name, string sequence, int begin, int end, List<Ptm> modifications, double reported_mass, double theoretical_mass, int scan, double retention_time, string filename, double qValue, double score, List<MatchedFragmentIon> matched_fragment_ions, string target, double intensity)
         {
             this.hit_ID = hit_ID;
             this.file = file;
@@ -110,6 +112,7 @@ namespace ProteoformSuiteInternal
             this.matched_fragment_ions = matched_fragment_ions;
             this.original_pfr_accession = full_sequence;
             this.target = target == "N" ? true : false;
+            this.intensity = intensity;
 
             Dictionary<int, Modification> allModsOneIsNTerminus = new Dictionary<int, Modification>();
             Dictionary<int, List<Modification>> allModsOneIsNTerminus_dictionary = new Dictionary<int, List<Modification>>();
