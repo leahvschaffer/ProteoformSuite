@@ -259,7 +259,7 @@ namespace ProteoformSuiteInternal
                             Int32.TryParse(cellStrings[17], out i) ? i : 0,
                             Double.TryParse(cellStrings[18], out d) ? d : 0, cellStrings[14].Split('.')[0],
                             Double.TryParse(cellStrings[20], out d) ? d : 0,
-                            Double.TryParse(cellStrings[22], out d) ? d : 0, new List<MatchedFragmentIon>(), "N", 0);
+                            Double.TryParse(cellStrings[22], out d) ? d : 0, 0, new List<MatchedFragmentIon>(), "N", 0);
 
                         if (td_hit.begin > 0 && td_hit.end > 0 && td_hit.theoretical_mass > 0 &&
                             td_hit.reported_mass > 0 && td_hit.score > 0
@@ -287,7 +287,7 @@ namespace ProteoformSuiteInternal
             string[] cells = Enumerable.ToArray(System.IO.File.ReadAllLines(file.complete_path));
             string[] header = cells[0].Split('\t');
 
-            int index_q_value = Array.IndexOf(header, "QValue");
+            int index_q_value = Array.IndexOf(header, "PEP_QValue");
             int index_decoy = Array.IndexOf(header, "Decoy");
             int index_full_sequence = Array.IndexOf(header, "Full Sequence");
             int index_filename = Array.IndexOf(header,"File Name");
@@ -304,6 +304,8 @@ namespace ProteoformSuiteInternal
             int index_matched_ion_mz_ratios = Array.IndexOf(header, "Matched Ion Mass-To-Charge Ratios");
             int index_score = Array.IndexOf(header, "Score");
             int pep = Array.IndexOf(header, "PEP");
+            int index_delta_score = Array.IndexOf(header, "Delta Score");
+
             //creates dictionary to find mods
             Dictionary<string, Modification> mods = new Dictionary<string, Modification>();
             foreach (var mod in Sweet.lollipop.theoretical_database.all_mods_with_mass)
@@ -330,10 +332,10 @@ namespace ProteoformSuiteInternal
                 string row = cells[index];
                 var cellStrings = row.Split('\t').ToList();
                 bool add_topdown_hit = true; //if PTM or accession not found, will not add (show warning)
-                double qValue = Convert.ToDouble(cellStrings[index_q_value].Split('|')[0]);
+                double qValue = Double.TryParse(cellStrings[index_q_value].Split('|')[0], out qValue) ? qValue: -1;
                 List<string> decoy = cellStrings[index_decoy].Split('|').ToList();
                 //don't read in any decoys for now
-                if (qValue < 0.01) //&& decoy.All(d => d == "N"))
+                if (qValue < 0.01 && qValue >= 0) //&& decoy.All(d => d == "N"))
                 {
                     List<int> begin = new List<int>();
                     List<int> end = new List<int>();
@@ -440,7 +442,7 @@ namespace ProteoformSuiteInternal
                                 accessions.Count, names.Count, base_sequences.Count, theoretical_masses.Count,
                                 new_ptm_list.Count, begin.Count, end.Count
                             };
-
+                        
                     for (int hit = 0; hit < counts.Max(); hit++)
                     {
                         SpectrumMatch td_hit = new SpectrumMatch(index, aaIsotopeMassList, file,
@@ -450,7 +452,7 @@ namespace ProteoformSuiteInternal
                                 accessions.Count > hit ? accessions[hit] : accessions[0],
                                 names.Count > hit ? names[hit] : names[0],
                                 base_sequences.Count > hit ? base_sequences[hit] : base_sequences[0],
-                                begin.Count > hit ? begin[0] : begin[0], end.Count > hit ? end[0] : end[0],
+                                begin.Count > hit ? begin[hit] : begin[0], end.Count > hit ? end[hit] : end[0],
                                 new_ptm_list.Count > hit ? new_ptm_list[hit] : new_ptm_list.Count > 0 ? new_ptm_list[0] : new List<Ptm>(),
                                 Double.TryParse(cellStrings[index_precursor_mass], out double m) ? m : 0,
                                 theoretical_masses.Count > hit ? theoretical_masses[hit] : theoretical_masses[0],
@@ -459,6 +461,7 @@ namespace ProteoformSuiteInternal
                                 cellStrings[index_filename].Split('.')[0],
                                 qValue,
                                 Convert.ToDouble(cellStrings[index_score]),
+                                Convert.ToDouble(cellStrings[index_delta_score]),
                                 ReadFragmentIonsFromString(cellStrings[index_matched_ion_mz_ratios], base_sequences.Count > hit ? base_sequences[hit] : base_sequences[0]),
                                 decoy.Count > hit? decoy[hit] : decoy[0],
                                 Convert.ToDouble(cellStrings[pep]));
@@ -466,14 +469,18 @@ namespace ProteoformSuiteInternal
                                  td_hit.reported_mass > 0 && td_hit.score > 0
                                 && td_hit.ms2ScanNumber > 0 && td_hit.ms2_retention_time > 0)
                             {
-                            if (hit == 0)
-                            {
-                                hit_to_add = td_hit;
-                            }
-                            else if (td_hit.pfr_accession != hit_to_add.pfr_accession 
-                                && !ambiguious_hits.Select(h =>  h.pfr_accession).Contains(td_hit.pfr_accession))
+                                //MM bug right now handling...
+                                if (begin.Count == 1 || begin.Count == accessions.Count)
                                 {
-                                    ambiguious_hits.Add(td_hit);
+                                    if (hit == 0)
+                                    {
+                                        hit_to_add = td_hit;
+                                    }
+                                    else if (td_hit.pfr_accession != hit_to_add.pfr_accession
+                                        && !ambiguious_hits.Select(h => h.pfr_accession).Contains(td_hit.pfr_accession))
+                                    {
+                                        ambiguious_hits.Add(td_hit);
+                                    }
                                 }
                             }
                         }

@@ -273,8 +273,8 @@ namespace ProteoformSuiteInternal
                     foreach (var bu in bottom_up_PSMs)
                     {
                         var ptms_bio_interest = bu.ptm_list.Where(p => p.modification.ModificationType != "Common Fixed" && UnlocalizedModification.bio_interest(p.modification));
-                        if (ptms_bio_interest.Count() == 0) continue;
-                        string name = bu.accession + "_" + bu.begin + "to" + bu.end + "_" + string.Join("; ", ptms_bio_interest.Select(p => UnlocalizedModification.LookUpId(p.modification) + "@" + p.position));
+                        string ptm_description = ptms_bio_interest.Count() == 0 ? "Unmodified" : string.Join("; ", ptms_bio_interest.Select(p => UnlocalizedModification.LookUpId(p.modification) + "@" + p.position));
+                        string name = bu.accession + "_" + bu.begin + "to" + bu.end + "_" + ptm_description;
                         if (names.Contains(name)) continue;
                         names.Add(name);
                         edge_table.Rows.Add
@@ -444,10 +444,9 @@ namespace ProteoformSuiteInternal
                         List<string> names = new List<string>();
                         foreach (var bu in bottom_up_PSMs)
                         {
-
-                            var ptms_bio_interest = bu.ptm_list.Where(m => m.modification.ModificationType != "Common Fixed" && UnlocalizedModification.bio_interest(m.modification));
-                            if (ptms_bio_interest.Count() == 0) continue;
-                            string name = bu.accession + "_" + bu.begin + "to" + bu.end + "_" + string.Join("; ", ptms_bio_interest.Select(m => UnlocalizedModification.LookUpId(m.modification) + "@" + m.position));
+                            var ptms_bio_interest = bu.ptm_list.Where(m => m.modification.ModificationType != "Common Fixed");
+                            string ptm_description = ptms_bio_interest.Count() == 0 ? "Unmodified" : string.Join("; ", ptms_bio_interest.Select(m => UnlocalizedModification.LookUpId(m.modification) + "@" + m.position));
+                            string name = bu.accession + "_" + bu.begin + "to" + bu.end + "_" + ptm_description;
                             if (names.Contains(name)) continue;
                             names.Add(name);
                             node_table.Rows.Add(name, bu_label, total_intensity, tooltip, layout_rank);
@@ -499,7 +498,8 @@ namespace ProteoformSuiteInternal
                 TopDownProteoform e = p as TopDownProteoform;
                 string name = Math.Round(e.agg_mass, double_rounding) + "_Da_" + Math.Round(e.agg_rt, double_rounding) + "_min_" + e.accession;
                 if (node_label == Lollipop.node_labels[1])
-                    name += " " + e.topdown_begin + "to" + e.topdown_end + " " + e.topdown_ptm_description;
+                    name += " " + (e.topdown_level > 1 ? "Ambiguous " : "")
+                        + e.topdown_begin + "to" + e.topdown_end + " " + e.topdown_ptm_description;
                 if (addBottomUpNodes) name = e.accession + "_" + e.topdown_ptm_description;
                 return name;
             }

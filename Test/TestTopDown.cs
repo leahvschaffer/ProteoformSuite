@@ -342,6 +342,88 @@ namespace Test
         }
 
         [Test]
+        public void TestTopDownAggregationAmbiguity()
+        {
+            Sweet.lollipop = new Lollipop();
+            SpectrumMatch pf1 = ConstructorsForTesting.SpectrumMatch("A", 1000, 10, 10, 20);
+            SpectrumMatch ambiguous_pf = ConstructorsForTesting.SpectrumMatch("A", 1000, 10, 10, 20);
+            ambiguous_pf.ambiguous_matches = new List<SpectrumMatch>() { ConstructorsForTesting.SpectrumMatch("B", 1000, 10, 10, 20) };
+            Sweet.lollipop.top_down_hits = new List<SpectrumMatch>() { pf1, ambiguous_pf };
+            Sweet.lollipop.topdown_proteoforms = Sweet.lollipop.aggregate_td_hits(Sweet.lollipop.top_down_hits, 0, true, true);
+            Assert.AreEqual(1, Sweet.lollipop.topdown_proteoforms.Count);
+            Assert.AreEqual(1, Sweet.lollipop.topdown_proteoforms.First().topdown_hits.Count);
+            Assert.AreEqual(0, Sweet.lollipop.topdown_proteoforms.First().ambiguous_topdown_hits.Count);
+        }
+
+        [Test]
+        public void TestBottomUpPSMsWithTopDownProteoforms()
+        {
+            Sweet.lollipop = new Lollipop();
+            SpectrumMatch ambiguous_pf = ConstructorsForTesting.SpectrumMatch("A", 1000, 10, 10, 20);
+            ambiguous_pf.ambiguous_matches = new List<SpectrumMatch>() { ConstructorsForTesting.SpectrumMatch("B", 1000, 10, 10, 20) };
+            SpectrumMatch bu1 = ConstructorsForTesting.SpectrumMatch("A", 1000, 10, 10, 17);
+            SpectrumMatch bu2 = ConstructorsForTesting.SpectrumMatch("B", 1000, 10, 10, 17);
+            SpectrumMatch bu3 = ConstructorsForTesting.SpectrumMatch("B", 1000, 10, 9, 17);
+            Sweet.lollipop.theoretical_database.bottom_up_psm_by_accession.Add("A", new List<SpectrumMatch>() { bu1 });
+            Sweet.lollipop.theoretical_database.bottom_up_psm_by_accession.Add("B", new List<SpectrumMatch>() { bu2, bu3 });
+            Sweet.lollipop.topdown_proteoforms = Sweet.lollipop.aggregate_td_hits(new List<SpectrumMatch>() { ambiguous_pf }, 0, true, true);
+            Assert.AreEqual(1, Sweet.lollipop.topdown_proteoforms.First().topdown_bottom_up_PSMs.Count);
+            Assert.AreEqual(1, Sweet.lollipop.topdown_proteoforms.First().ambiguous_topdown_hits.First().bottom_up_PSMs.Count);
+        }
+
+        [Test]
+        public void TestDescription()
+        {
+            Sweet.lollipop = new Lollipop();
+            Sweet.lollipop.enter_input_files(new string[] { Path.Combine(TestContext.CurrentContext.TestDirectory, "uniprot_yeast_test_12entries.xml") }, Lollipop.acceptable_extensions[2], Lollipop.file_types[2], Sweet.lollipop.input_files, false);
+            Sweet.lollipop.theoretical_database.get_theoretical_proteoforms(TestContext.CurrentContext.TestDirectory);
+            var mod = Sweet.lollipop.theoretical_database.all_mods_with_mass.Where(m => m.OriginalId == "Acetylation").First();
+            var description = TopDownProteoform.get_description(new List<SpectrumMatch>(), "A", true, new PtmSet(new List<Ptm>() { new Ptm(1, mod) }));
+            //no peptides
+            Assert.AreEqual("no BU PSMs", description);
+            //no modified peptides
+            var unmodified_peptide = ConstructorsForTesting.SpectrumMatch("A", 1000, 10, 2, 10);
+            description = TopDownProteoform.get_description(new List<SpectrumMatch>() { unmodified_peptide }, "A", true, new PtmSet(new List<Ptm>() { new Ptm(1, mod) }));
+            Assert.AreEqual("no modified BU PSMs", description);
+            //same location PTM
+            var modified = ConstructorsForTesting.SpectrumMatch("A", 1000, 10, 2, 10);
+            modified.ptm_list.Add(new Ptm(1, mod));
+            description = TopDownProteoform.get_description(new List<SpectrumMatch>() { modified }, "A", true, new PtmSet(new List<Ptm>() { new Ptm(1, mod) }));
+            Assert.AreEqual("Same location PTM. ", description);
+            //other td PTM
+             modified = ConstructorsForTesting.SpectrumMatch("A", 1000, 10, 2, 10);
+            modified.ptm_list.Add(new Ptm(2, mod));
+            description = TopDownProteoform.get_description(new List<SpectrumMatch>() { modified }, "A", true, new PtmSet(new List<Ptm>() { new Ptm(1, mod) }));
+            Assert.AreEqual("Different locations", description);
+            //additional td PTM
+            modified = ConstructorsForTesting.SpectrumMatch("A", 1000, 10, 2, 10);
+            modified.ptm_list.Add(new Ptm(2, mod));
+            description = TopDownProteoform.get_description(new List<SpectrumMatch>() { modified }, "A", true, new PtmSet(new List<Ptm>() { new Ptm(1, mod), new Ptm(2, mod) }));
+            Assert.AreEqual("Same location PTM. Additional TD location. ", description);
+            //additional BU ptm
+            //additional td PTM
+            modified = ConstructorsForTesting.SpectrumMatch("A", 1000, 10, 2, 10);
+            modified.ptm_list.Add(new Ptm(2, mod));
+            modified.ptm_list.Add(new Ptm(1, mod));
+            description = TopDownProteoform.get_description(new List<SpectrumMatch>() { modified }, "A", true, new PtmSet(new List<Ptm>() { new Ptm(1, mod) }));
+            Assert.AreEqual("Same location PTM. Additional BU locations. ", description);
+
+            var other_mod = Sweet.lollipop.theoretical_database.all_mods_with_mass.Where(m => m.OriginalId == "Phosphorylation").First();
+            modified = ConstructorsForTesting.SpectrumMatch("A", 1000, 10, 2, 10);
+            modified.ptm_list.Add(new Ptm(2, other_mod));
+            description = TopDownProteoform.get_description(new List<SpectrumMatch>() { modified }, "A", true, new PtmSet(new List<Ptm>() { new Ptm(1, mod) }));
+            Assert.AreEqual("Other TD PTM. Other BU PTM. ", description);
+
+            modified.ptm_list.Add(new Ptm(2, mod));
+            description = TopDownProteoform.get_description(new List<SpectrumMatch>() { modified }, "A", true, new PtmSet(new List<Ptm>() { new Ptm(1, mod) }));
+            Assert.AreEqual("Other BU PTM. Different locations", description);
+
+            description = TopDownProteoform.get_description(new List<SpectrumMatch>() { modified }, "A", true, new PtmSet(new List<Ptm>()));
+            Assert.AreEqual("Other BU PTM. ", description);
+        }
+
+
+        [Test]
         public void TestTopdownGeneAmbiguity()
         {
             Sweet.lollipop = new Lollipop();

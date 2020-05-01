@@ -106,7 +106,7 @@ namespace ProteoformSuiteInternal
         {
             get
             {
-                            return (topdown_bottom_up_PSMs.Count(p => p.ptm_list.Count(m => UnlocalizedModification.bio_interest(m.modification)) > 0 && p.ambiguous_matches.Count == 0) == 0
+               return (topdown_bottom_up_PSMs.Count(p => p.ptm_list.Count(m => UnlocalizedModification.bio_interest(m.modification)) > 0 && p.ambiguous_matches.Count == 0) == 0
                 ? "N/A"
                 : String.Join(", ",
                      topdown_bottom_up_PSMs.Where(p => p.ptm_list.Count(m => UnlocalizedModification.bio_interest(m.modification)) > 0 && p.ambiguous_matches.Count == 0).Select(p => p.ptm_description).Distinct()))
@@ -358,8 +358,9 @@ namespace ProteoformSuiteInternal
             }
             else
             {
+
                 var unique_accessions = new List<string>() { this.accession.Split('_')[0].Split('-')[0] }.Concat(ambiguous_topdown_hits.Select(a => a.accession.Split('_')[0])).Distinct();
-                var unique_sequences = new List<string>() { sequence }.Concat(ambiguous_topdown_hits.Select(a => sequence)).Distinct();
+                var unique_sequences = new List<string>() { sequence }.Concat(ambiguous_topdown_hits.Select(a => a.sequence)).Distinct();
                 var unique_PTM_locations = new List<string>() { string.Join(",", topdown_ptm_set.ptm_combination.Select(p => p.position).OrderBy(n => n)) }.Concat(ambiguous_topdown_hits.Select(h => string.Join(",", h.ptm_list.Select(p => p.position).OrderBy(n => n)))).Distinct();
                 var unique_PTM_IDs = new List<string>() { string.Join(",", topdown_ptm_set.ptm_combination.Select(p => UnlocalizedModification.LookUpId(p.modification)).OrderBy(n => n)) }.Concat(ambiguous_topdown_hits.Select(h => string.Join(",", h.ptm_list.Select(p => UnlocalizedModification.LookUpId(p.modification)).OrderBy(n => n)))).Distinct();
 

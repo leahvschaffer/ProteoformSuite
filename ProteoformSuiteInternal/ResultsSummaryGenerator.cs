@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MathNet.Numerics.Statistics;
+using Proteomics;
 
 namespace ProteoformSuiteInternal
 {
@@ -62,6 +62,11 @@ namespace ProteoformSuiteInternal
                 {
                     writer.Write(datatable_tostring(shared_peptide_results_dataframe()));
                 }
+                
+                using(StreamWriter writer = new StreamWriter(Path.Combine(directory, "proteoform_bottomup_evidence_" + timestamp + ".tsv")))
+                {
+                    writer.Write(datatable_tostring(putative_proteoforms_bottom_up()));
+                }
             }
         }
 
@@ -79,7 +84,7 @@ namespace ProteoformSuiteInternal
 
            if (Sweet.lollipop.theoretical_database.bottom_up_psm_by_accession.Count > 0)
            {
-                        message += CytoscapeScript.write_cytoscape_script(Sweet.lollipop.target_proteoform_community.families, Sweet.lollipop.target_proteoform_community.families,
+                message += CytoscapeScript.write_cytoscape_script(Sweet.lollipop.target_proteoform_community.families, Sweet.lollipop.target_proteoform_community.families,
                 Sweet.lollipop.results_folder, "BottomUp_", timestamp,
                 null,
                 true, true,
@@ -749,6 +754,7 @@ namespace ProteoformSuiteInternal
             results.Columns.Add("Potentially Novel Modifications");
             results.Columns.Add("Top-Down PTM Type Unlocalized", typeof(string));
             results.Columns.Add("Best C-score", typeof(double));
+            results.Columns.Add("Best Delta score", typeof(double));
             results.Columns.Add("Best Q-Value", typeof(double));
             results.Columns.Add("Level Number", typeof(string));
             results.Columns.Add("Level Description", typeof(string));
@@ -801,6 +807,7 @@ namespace ProteoformSuiteInternal
                     (td.topdown_ptm_set.ptm_combination.Count == 0 ? "Unmodified" : string.Join("; ", td.topdown_ptm_set.ptm_combination.Select(ptm => UnlocalizedModification.LookUpId(ptm.modification)).OrderBy(m => m)))
                      + (td.ambiguous_topdown_hits.Count > 0 ? " | " + String.Join(" | ", td.ambiguous_topdown_hits.Select(h => h.ptm_list.Count == 0 ? "Unmodified" : string.Join("; ", h.ptm_list.Select(ptm => UnlocalizedModification.LookUpId(ptm.modification)).OrderBy(m => m)))) : ""),
                     td.topdown_hits.Max(h => h.score),
+                    td.topdown_hits.Max(h => h.deltaScore),
                     td.topdown_hits.Min(h => h.qValue),
                     td.topdown_level,
                     td.topdown_level_description,
@@ -945,6 +952,203 @@ namespace ProteoformSuiteInternal
             return results;
         }
 
+        public static DataTable putative_proteoforms_bottom_up()
+        {
+            DataTable results = new DataTable();
+            results.Columns.Add("Protein Accession", typeof(string));
+            results.Columns.Add("Proteoform Sequence", typeof(string));
+            results.Columns.Add("Proteoform Begin", typeof(int));
+            results.Columns.Add("Proteoform End", typeof(int));
+            results.Columns.Add("Fragment", typeof(string));
+            results.Columns.Add("PTM List", typeof(string));
+            results.Columns.Add("Proteoform Mass", typeof(double));
+            results.Columns.Add("All Peptides", typeof(string));
+            results.Columns.Add("Unmodified Peptides", typeof(string));
+            results.Columns.Add("Level-1 Top-Down Identified", typeof(string));
+            results.Columns.Add("Ambiguous Top-Down Identified", typeof(string));
+            results.Columns.Add("Closest Intact-Mass", typeof(double));
+            results.Columns.Add("All Shared", typeof(bool));
+
+            Parallel.ForEach(Sweet.lollipop.theoretical_database.bottom_up_psm_by_accession, kv =>
+            {
+                var rows = new List<object[]>();
+                Sweet.lollipop.theoretical_database.theoreticals_by_accession[Sweet.lollipop.target_proteoform_community.community_number].TryGetValue(kv.Key, out var theoreticals);
+                if (theoreticals != null)
+                {
+                    theoreticals = theoreticals.OrderByDescending(x => x.fragment == "full-met-cleaved").ThenByDescending(x => x.fragment == "full").ThenBy(x => x.begin).ToList();
+                    Dictionary<string, List<SpectrumMatch>> peptides_by_unique_mods = new Dictionary<string, List<SpectrumMatch>>();
+                    foreach (var peptide in kv.Value.Where(p => p.ambiguous_matches.Count == 0))
+                    {
+                        var ptm_description = string.Join("; ", peptide.ptm_list.Where(b => UnlocalizedModification.bio_interest(b.modification)).Select(b => UnlocalizedModification.LookUpId(b.modification) + "@" + b.position));
+                        if (ptm_description == "") ptm_description = "Unmodified";
+                        if (peptides_by_unique_mods.ContainsKey(ptm_description))
+                        {
+                            peptides_by_unique_mods[ptm_description].Add(peptide);
+                        }
+                        else
+                        {
+                            peptides_by_unique_mods.Add(ptm_description, new List<SpectrumMatch>() { peptide });
+                        }
+                    }
+
+                    Dictionary<TheoreticalProteoform, List<string>> theoreticals_added = new Dictionary<TheoreticalProteoform, List<string>>();
+                    foreach (var unique_mod_set in peptides_by_unique_mods.OrderByDescending(k => k.Key.Count(c => c == '@')))
+                    {
+                        //see if peptides can already be explained by previously added theoreticals
+                        List<SpectrumMatch> unexplained_peptides = new List<SpectrumMatch>();
+                        if (theoreticals_added.Count == 0) unexplained_peptides.AddRange(unique_mod_set.Value);
+                        foreach (var p in unique_mod_set.Value)
+                        {
+                            bool unexplained = true;
+                            foreach (var theo in theoreticals_added.Where(t => p.begin >= t.Key.begin && p.end <= t.Key.end))
+                            {
+                                foreach (var mod_set in theo.Value.Where(t => t.Contains('@')))
+                                {
+                                    var mods = mod_set.Split(';').Select(m => m.Trim()).ToList();
+                                    var positions = mod_set.Split(';').Select(t => t.Split('@')[1]).ToList();
+                                    if (unique_mod_set.Key == "Unmodified")
+                                    {
+                                        //unmodified so make sure no PTM positions within peptide...
+                                        if (positions.All(position => !(Convert.ToInt32(position) >= p.begin && Convert.ToInt32(position) <= p.end)))
+                                        {
+                                            unexplained = false;
+                                        }
+                                    }
+
+                                    //if a more modified proteoform explains this modified peptide, don't add also 
+                                    else if (mods.Contains(unique_mod_set.Key))
+                                    {
+                                        //make sure this peptide isn't unmodified at the position of the proteoforms other PTMs
+                                        var other_positions = mods.Where(m => m != unique_mod_set.Key).Select(pos => pos.Split('@')[1]);
+                                        if (other_positions.All(position => !(Convert.ToInt32(position) >= p.begin && Convert.ToInt32(position) <= p.end)))
+                                        {
+                                            unexplained = false;
+                                        }
+                                    }
+                                }
+                            }
+                            if(unexplained)
+                            {
+                                unexplained_peptides.Add(p);
+                            }
+                        }
+
+
+                        List<TheoreticalProteoform> theoretical_to_add = new List<TheoreticalProteoform>();
+                        var begin_or_end_peptides = unexplained_peptides.Where(p => p.begin == 1 || theoreticals.Select(t => t.begin).Contains(p.begin) || theoreticals.Select(t => t.end).Contains(p.end));
+                       
+                        if (begin_or_end_peptides.Count() > 0)
+                        {
+                            var begins = begin_or_end_peptides.Select(p => p.begin).Distinct();
+                            var ends = begin_or_end_peptides.Select(p => p.end).Distinct();
+                            foreach (var begin in begins)
+                            {
+                                if (begin == 1)
+                                {
+                                    if (theoreticals.Any(t => t.fragment == "full"))
+                                    {
+                                        var t = theoreticals.Where(x => x.fragment == "full").First();
+                                        if (!theoretical_to_add.Contains(t))
+                                        {
+                                            theoretical_to_add.Add(t);
+                                        }
+                                    }
+                                    else //take the full cleaved sequence and add M
+                                    {
+                                        var t = theoreticals.Where(x => x.fragment == "full-met-cleaved").First();
+                                        TheoreticalProteoform theoretical_with_M = new TheoreticalProteoform("", "", "M" + t.sequence,
+                                        theoreticals.First().ExpandedProteinList, 0, 0, new PtmSet(new List<Ptm>()), false, false, null);
+                                        theoretical_with_M.fragment = "full";
+                                        theoretical_with_M.begin = 1;
+                                        theoretical_with_M.end = t.end;
+                                        theoretical_to_add.Add(theoretical_with_M);
+                                    }
+                                }
+                                else if (theoreticals.Any(t => t.begin == begin))
+                                {
+                                    var t = theoreticals.Where(x => x.begin == begin).First();
+                                    if (!theoretical_to_add.Contains(t))
+                                    {
+                                        theoretical_to_add.Add(t);
+                                    }
+                                }
+                            }
+                            foreach (var end in ends)
+                            {
+                                if (theoretical_to_add.Any(t => t.end == end)) //already explained
+                                {
+                                    continue;
+                                }
+                                if (theoreticals.Any(t => t.end == end))
+                                {
+                                    var t = theoreticals.Where(x => x.end == end).First();
+                                    if (!theoretical_to_add.Contains(t))
+                                    {
+                                        theoretical_to_add.Add(t);
+                                    }
+                                }
+                            }
+                        }
+
+                        //any leftover peptides unexlpained?
+                        if (unexplained_peptides.Any
+                        (p => !theoretical_to_add.Any(t => p.begin >= t.begin && p.end <= t.end)))
+                        {
+                            theoretical_to_add.Add(theoreticals.First());
+                        }
+
+                        foreach (var t in theoretical_to_add)
+                        {
+                            if (theoreticals_added.ContainsKey(t))
+                            {
+                                theoreticals_added[t].Add(unique_mod_set.Key);
+                            }
+                            else
+                            {
+                                theoreticals_added.Add(t, new List<string>() { unique_mod_set.Key });
+                            }
+                            var peptides = unique_mod_set.Value.Where(p => p.begin >= t.begin && p.end <= t.end);
+                            if (peptides.Count() == 0) continue;
+                            var unmodified_peptides = peptides_by_unique_mods.ContainsKey("Unmodified") ? peptides_by_unique_mods["Unmodified"].Where(p => p.begin >= t.begin && p.end <= t.end) : new List<SpectrumMatch>();
+                            var topdown = Sweet.lollipop.topdown_proteoforms.Where(td => td.topdown_level == 1 && td.accession.Contains(kv.Key) && td.sequence == t.sequence &&
+                                          td.topdown_ptm_set.same_ptmset(new PtmSet(unique_mod_set.Value.First().ptm_list.Where(p => UnlocalizedModification.bio_interest(p.modification)).ToList()), false));
+                            var ambiguous_topdown = Sweet.lollipop.topdown_proteoforms.Where(td => td.topdown_level > 1).Where(td => (td.accession.Contains(kv.Key) && td.sequence == t.sequence &&
+                                             td.topdown_ptm_set.same_ptmset(new PtmSet(unique_mod_set.Value.First().ptm_list.Where(p => UnlocalizedModification.bio_interest(p.modification)).ToList()), false))
+                                             || td.ambiguous_topdown_hits.Any(h => h.accession.Contains(kv.Key) && h.sequence == t.sequence && new PtmSet(h.ptm_list).same_ptmset(new PtmSet(unique_mod_set.Value.First().ptm_list.Where(p => UnlocalizedModification.bio_interest(p.modification)).ToList()), false))
+                                             );
+
+                            double theoretical_mass = TheoreticalProteoform.CalculateProteoformMass(t.sequence, unique_mod_set.Value.First().ptm_list.Where(p => UnlocalizedModification.bio_interest(p.modification)).ToList());
+                            var intact_mass = Sweet.lollipop.target_proteoform_community.experimental_proteoforms.Where(e => !e.topdown_id && (!Sweet.lollipop.neucode_labeled || e.lysine_count == t.sequence.Count(s => s == 'K'))).OrderBy(e => Math.Abs(e.agg_mass - theoretical_mass)).FirstOrDefault();
+
+                            rows.Add(new object[13]{
+                                            kv.Key,
+                                            t.sequence,
+                                            t.begin,
+                                            t.end,
+                                            t.fragment,
+                                            unique_mod_set.Key,
+                                            theoretical_mass,
+                                            string.Join("; ", peptides.OrderBy(p => p.begin).ThenBy(p => p.end).Select(p => p.begin + "_to_" + p.end)),
+                                            string.Join("; ", unmodified_peptides.OrderBy(p => p.begin).ThenBy(p => p.end).Select(p => p.begin + "_to_" + p.end)),
+                                            string.Join("; ", topdown.Select(td => td.accession)),
+                                            string.Join("; ", ambiguous_topdown.Select(td => td.accession)),
+                                            intact_mass != null ? intact_mass.agg_mass : 0,
+                                            unique_mod_set.Value.All(p => p.shared_protein)
+                            });
+                        }
+                    }
+                }
+                lock (results)
+                {
+                    foreach (var row in rows)
+                    {
+                        results.Rows.Add(row);
+                    }
+                }
+            });
+
+            return results;
+        }
 
         public static DataTable shared_peptide_results_dataframe()
         {
